@@ -1,4 +1,5 @@
-## Selenium IDE Flex-Pilot Plugin: A Selenium IDE plugin for integrating with Flex-Pilot, for Flex automation.
+## Selenium IDE Flex-Pilot Plugin: 
+A Selenium IDE plugin for integrating with Flex-Pilot, for Flex automation.
 - - -
 
 ### Features
@@ -16,7 +17,8 @@ Apache License, Version 2
 	* Install exactly the same way you would any other Firefox Extension, just keep in mind that it requires Selenium IDE.
 	* Restart Selenium IDE after installation for changes to become available.
 	
-	* For your Flex applicatoin to be testable, the FlexPilot bindings must be setup in your application, steps are outlined here: http://wiki.github.com/mde/flex-pilot/flash-testing-setup
+	* For your Flex applicatoin to be testable, the FlexPilot bindings must be setup in your application. 
+		Steps are outlined - [HERE](http://wiki.github.com/mde/flex-pilot/flash-testing-setup)
 ### Usage
 
 	* To record, goto the Selenium IDE Options Menu
