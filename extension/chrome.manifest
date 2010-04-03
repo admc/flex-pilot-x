@@ -1,0 +1,12 @@
+content flexpilotx  chrome/content/
+
+locale flexpilotx en-US chrome/locale/en-US/
+locale flexpilotx fr-FR chrome/locale/fr-FR/
+locale flexpilotx ja-JP chrome/locale/ja-JP/
+locale flexpilotx pt-BR chrome/locale/pt-BR/
+
+# options menu
+overlay chrome://selenium-ide/content/selenium-ide-common.xul chrome://flexpilotx/content/view/optionsOverlay.xul
+
+# custom extension(s)
+overlay chrome://selenium-ide/content/selenium-ide-overlay.xul chrome://flexpilotx/content/extensions/extension-loader.xul

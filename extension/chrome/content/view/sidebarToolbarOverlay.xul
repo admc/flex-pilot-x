@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+
+<?xml-stylesheet href="toolbar.css" type="text/css"?>
+
+<!DOCTYPE prefwindow SYSTEM "chrome://flexpilotx/locale/ui.dtd">
+
+<overlay id="flexpilotx_sidebar_overlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+	<toolbar id="sidebarToolbar_controls">
+    	<toolbarseparator id="flexpilotx-separator" insertafter="record-button" />
+		<toolbarbutton id="flexpilotx-button" insertafter="flexpilotx-separator" label="&flexpilotxButton.tooltip;" class="icon" tooltiptext="&flexpilotxButton.tooltip;" command="cmd_selenium_testrunner"/>
+    </toolbar>
+</overlay>

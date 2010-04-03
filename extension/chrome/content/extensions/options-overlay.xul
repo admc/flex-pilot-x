@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?> 
+
+<!DOCTYPE prefwindow SYSTEM "chrome://flexpilotx/locale/options.dtd">
+
+<overlay id="sauce_ide_options_overlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+	<menu id="flexMenu" label="Flex">
+		<menupopup id="menu_FlexPopup">
+			<menuitem id="flashExplore" label="Flex Explore" oncommand="window.editor.exploreFlash();"/>
+			<menuitem id="flashRecord" label="Flex Record" oncommand="window.editor.recordFlash();"/>
+			<menuseparator/>
+			<menuitem id="flashOff" label="Turn OFF Flex Tools" oncommand="window.editor.offFlash();"/>
+		</menupopup>
+
+</overlay>

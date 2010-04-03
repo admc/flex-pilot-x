@@ -1,0 +1,1 @@
+pref("extensions.selenium-ide.flexpilotx.performflexpilotx",true);
