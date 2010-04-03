@@ -18,7 +18,7 @@ Apache License, Version 2
 	* Restart Selenium IDE after installation for changes to become available.
 	
 	* For your Flex applicatoin to be testable, the FlexPilot bindings must be setup in your application. 
-		Steps are outlined - http://wiki.github.com/mde/flex-pilot/flash-testing-setup "HERE"
+		Steps are outlined -  "HERE":http://wiki.github.com/mde/flex-pilot/flash-testing-setup
 ### Usage
 
 	* To record, goto the Selenium IDE Options Menu
