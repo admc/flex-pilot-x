@@ -123,13 +123,11 @@ Selenium.prototype.doFlexDragDropToCoords = function(locator, options) {
     } catch(err){}
 };
 
-Selenium.prototype.doFlexAssertDisplayObject = function(locator, flashLoc) {
-    var flashObj = parse_locator(flashLoc);
-    var flashParam = {};
-	flashParam[flashObj.type] = flashObj['string'];
+Selenium.prototype.doFlexAssertDisplayObject = function(locator, options) {
+    var optionObj = eval("("+options+")");
 
     var movie = this.browserbot.findElement(locator);
-    var res = movie.wrappedJSObject['fp_dragDropToCoords'](flashParam);
+    var res = movie.wrappedJSObject['fp_dragDropToCoords'](optionObj);
     try {
         var msg = res.message;
         throw msg;
