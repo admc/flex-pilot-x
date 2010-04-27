@@ -12,5 +12,6 @@
 			"chrome://flexpilotx/content/extensions/extension-flexpilot.js", 
 			"chrome://flexpilotx/content/formats/flexpilot.xml"
 		);
+		ide_api.addPlugin("flexpilotx@getwindmill.com");
     </html:script>
 </overlay>

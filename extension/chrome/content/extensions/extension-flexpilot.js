@@ -6,7 +6,7 @@ Copyright 2009-2010, Sauce Labs
  You may obtain a copy of the License at
 
      http://www.apache.org/licenses/LICENSE-2.0
- 
+
  Contributor(s):
   Adam Christian <adam.christian@gmail.com>
 
@@ -27,7 +27,7 @@ Selenium.prototype.doFlexClick = function(locator, flashLoc) {
     try {
         var msg = res.message;
         throw res;
-    } catch(err){}
+    } catch(err) {}
 };
 
 Selenium.prototype.doFlexDoubleClick = function(locator, flashLoc) {
@@ -39,7 +39,7 @@ Selenium.prototype.doFlexDoubleClick = function(locator, flashLoc) {
     try {
         var msg = res.message;
         throw msg;
-    } catch(err){}
+    } catch(err) {}
 };
 
 //x.doFlashType("id=devMovie","chain=name:testTextArea/name:UITextField18", "SUP MANGO")
@@ -47,50 +47,47 @@ Selenium.prototype.doFlexDoubleClick = function(locator, flashLoc) {
 // target = id=devMovie
 // value = {flash:"chain=name:testTextArea/name:UITextField18", text:"ROCK"}
 Selenium.prototype.doFlexType = function(locator, options) {
-	var optionObj = eval("("+options+")");
+    var optionObj = eval("(" + options + ")");
 
     var movie = this.browserbot.findElement(locator);
     //var flashObj = parse_locator(optionObj.flash);
-	//var flashParam = {};
+    //var flashParam = {};
     //flashParam[flashObj.type] = flashObj['string'];
     //flashParam['text'] = optionObj.text;
-
     var res = movie.wrappedJSObject['fp_type'](optionObj);
     try {
         var msg = res.message;
         throw msg;
-    } catch(err){}
+    } catch(err) {}
 };
 
 //x.doFlashSelect("id=devMovie", "chain=id:subPanel/name:comboTest", "label=Alex")
 //{option:"label=Alex","flash":"chain=id:subPanel/name:comboTest"}
 Selenium.prototype.doFlexSelect = function(locator, options) {
     //Turn options JSON into an object
-    var optionObj = eval("("+options+")");
+    var optionObj = eval("(" + options + ")");
 
     //Lookup the flash movie
     var movie = this.browserbot.findElement(locator);
     //var flashObj = parse_locator(optionObj.flash);
     //var optObj = parse_locator(optionObj.option);
-
     //Create a params object to hand to the flash external interface
-	//var flashParam = {};
+    //var flashParam = {};
     //flashParam[flashObj.type] = flashObj['string'];
     //flashParam[optObj.type] = optObj['string'];
-
     //Execute the action, store result
     var res = movie.wrappedJSObject['fp_select'](optionObj);
     try {
         var msg = res.message;
         throw msg;
-    } catch(err){}
+    } catch(err) {}
 };
 
 //x.doFlashDragDropElemToElem("id=devMovie", "chain=name:dragSprite", "optchain=id:subPanel")
 //{chain:"name:dragSprite", optchain:"name:testTextArea"}
 Selenium.prototype.doFlexDragDropElemToElem = function(locator, options) {
     //Turn options JSON into an object
-    var optionObj = eval("("+options+")");
+    var optionObj = eval("(" + options + ")");
 
     var movie = this.browserbot.findElement(locator);
     /*var flashObj = parse_locator(flashLoc);
@@ -103,13 +100,13 @@ Selenium.prototype.doFlexDragDropElemToElem = function(locator, options) {
     try {
         var msg = res.message;
         throw msg;
-    } catch(err){}
+    } catch(err) {}
 };
 
 //x.doFlashDragDropElemToElem("id=devMovie", "chain=name:dragSprite", "optchain=id:subPanel")
 Selenium.prototype.doFlexDragDropToCoords = function(locator, options) {
     //Turn options JSON into an object
-    var optionObj = eval("("+options+")");
+    var optionObj = eval("(" + options + ")");
     var movie = this.browserbot.findElement(locator);
     /*var flashObj = parse_locator(flashLoc);
     var coordObj = parse_locator(coords);
@@ -120,52 +117,52 @@ Selenium.prototype.doFlexDragDropToCoords = function(locator, options) {
     try {
         var msg = res.message;
         throw msg;
-    } catch(err){}
+    } catch(err) {}
 };
 
 Selenium.prototype.doFlexAssertDisplayObject = function(locator, options) {
-    var optionObj = eval("("+options+")");
+    var optionObj = eval("(" + options + ")");
 
     var movie = this.browserbot.findElement(locator);
     var res = movie.wrappedJSObject['fp_dragDropToCoords'](optionObj);
     try {
         var msg = res.message;
         throw msg;
-    } catch(err){}
+    } catch(err) {}
 };
 
 
 Selenium.prototype.doFlexAssertTextIn = function(locator, options) {
     //Turn options JSON into an object
-    var optionObj = eval("("+options+")");
+    var optionObj = eval("(" + options + ")");
     var movie = this.browserbot.findElement(locator);
     var res = movie.wrappedJSObject['fp_assertTextIn'](optionObj);
     try {
         var msg = res.message;
         throw msg;
-    } catch(err){}
+    } catch(err) {}
 };
 
 Selenium.prototype.doFlexAssertText = function(locator, options) {
     //Turn options JSON into an object
-    var optionObj = eval("("+options+")");
+    var optionObj = eval("(" + options + ")");
 
     var movie = this.browserbot.findElement(locator);
     var res = movie.wrappedJSObject['fp_assertText'](optionObj);
     try {
         var msg = res.message;
         throw msg;
-    } catch(err){}
+    } catch(err) {}
 };
 
 Selenium.prototype.doFlexAssertProperty = function(locator, options) {
     //Turn options JSON into an object
-    var optionObj = eval("("+options+")");
+    var optionObj = eval("(" + options + ")");
 
     var movie = this.browserbot.findElement(locator);
     var res = movie.wrappedJSObject['fp_assertProperty'](optionObj);
     try {
         var msg = res.message;
         throw msg;
-    } catch(err){}
+    } catch(err) {}
 };

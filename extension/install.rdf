@@ -10,7 +10,7 @@
     <em:type>2</em:type> <!--Type extension-->
     <!--<em:optionsURL>chrome://flexpilotx/content/view/options.xul</em:optionsURL> --> <!--Preferences -->
 	<em:updateURL>https://github.com/downloads/admc/flex-pilot-x/update.rdf</em:updateURL>
-    
+
     <em:targetApplication>
       <Description>
         <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id> <!-- firefox -->
@@ -18,7 +18,7 @@
         <em:maxVersion>3.6.*</em:maxVersion>
       </Description>
     </em:targetApplication>
-    
+
     <em:requires>   
      <Description>
          <em:id>{a6fd85ed-e919-4a43-a5af-8da18bda539f}</em:id>

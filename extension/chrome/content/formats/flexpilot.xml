@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <apidoc>
-
-<function name="FlexClick">
-
-<param name="locator">an element locator</param>
-<param name="flashLoc">a flash element locator</param>
-
-<comment>Clicks on a flex element</comment>
-
-</function>
-
+  <function name="flexClick">
+    <param name="locator">an <a href="#locators">element locator</a></param>
+    <param name="flashLoc">an <a href="#locators">element locator</a></param>
+    <comment>Does a click</comment>
+  </function>
 </apidoc>
