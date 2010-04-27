@@ -159,7 +159,7 @@ function formatSuite(testSuite, filename) {
 			"ENV['RSPEC_COLOR'] = 'true'\n" +
 			'\n';
         
-	    for (var i = 0; i < testSuite.tests.length; ++i) {
+		for (var i = 0; i < testSuite.tests.length; ++i) {
 					// have saved or loaded a suite
 					if (typeof testSuite.tests[i].filename != 'undefined') {
 						formattedSuite += 'require File.join(File.dirname(__FILE__),  "' + testSuite.tests[i].filename.replace(/\.\w+$/,'') + '")\n';
