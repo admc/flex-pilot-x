@@ -8,6 +8,9 @@
     <script type="application/x-javascript" src="chrome://flexpilotx/content/flexpilotx.js"/>
     <html:script type="application/javascript">
         var ide_api = new API();
-        ide_api.addPluginProvidedUserExtension("chrome://flexpilotx/content/extensions/extension-flexpilot.js");
+        ide_api.addPluginProvidedUserExtension(
+			"chrome://flexpilotx/content/extensions/extension-flexpilot.js", 
+			"chrome://flexpilotx/content/formats/flexpilot.xml"
+		);
     </html:script>
 </overlay>
