@@ -19,27 +19,43 @@ Copyright 2009-2010, Sauce Labs
 
 //x.doFlashType("id=devMovie","id:howdyButton")
 Selenium.prototype.doFlexClick = function(locator, flashLoc) {
+	var strToObj = function(str){
+		var obj = {};
+		try { obj = eval("(" + str + ")") }
+		catch(err) {
+			var regExp = /\s+/g;
+			str = str.replace(regExp,'')
+			var optArr = str.split(",")
+			for (var i=0;i<optArr.length;i++){
+				var entryArr = optArr[i].split("=");
+				obj[entryArr[0]] = entryArr[1];
+			}
+		}
+		return obj; 
+	}
     var movie = this.browserbot.findElement(locator);
-    var flashObj = parse_locator(flashLoc);
-    var flashParam = {};
-    flashParam[flashObj.type] = flashObj['string'];
-    var res = movie.wrappedJSObject['fp_click'](flashParam);
-    try {
-        var msg = res.message;
-        throw res;
-    } catch(err) {}
+    var res = movie.wrappedJSObject['fp_click'](strToObj(flashLoc));
+	if (typeof(res) == "object"){ throw new SeleniumError(res.message); }
 };
 
 Selenium.prototype.doFlexDoubleClick = function(locator, flashLoc) {
+	var strToObj = function(str){
+		var obj = {};
+		try { obj = eval("(" + str + ")") }
+		catch(err) {
+			var regExp = /\s+/g;
+			str = str.replace(regExp,'')
+			var optArr = str.split(",")
+			for (var i=0;i<optArr.length;i++){
+				var entryArr = optArr[i].split("=");
+				obj[entryArr[0]] = entryArr[1];
+			}
+		}
+		return obj; 
+	}
     var movie = this.browserbot.findElement(locator);
-    var flashObj = parse_locator(flashLoc);
-    var flashParam = {};
-    flashParam[flashObj.type] = flashObj['string'];
-    var res = movie.wrappedJSObject['fp_doubleClick'](flashParam);
-    try {
-        var msg = res.message;
-        throw msg;
-    } catch(err) {}
+    var res = movie.wrappedJSObject['fp_doubleClick'](strToObj(flashLoc));
+	if (typeof(res) == "object"){ throw new SeleniumError(res.message); }
 };
 
 //x.doFlashType("id=devMovie","chain=name:testTextArea/name:UITextField18", "SUP MANGO")
@@ -47,100 +63,168 @@ Selenium.prototype.doFlexDoubleClick = function(locator, flashLoc) {
 // target = id=devMovie
 // value = {flash:"chain=name:testTextArea/name:UITextField18", text:"ROCK"}
 Selenium.prototype.doFlexType = function(locator, options) {
-    var optionObj = eval("(" + options + ")");
-
+	var strToObj = function(str){
+		var obj = {};
+		try { obj = eval("(" + str + ")") }
+		catch(err) {
+			var regExp = /\s+/g;
+			str = str.replace(regExp,'')
+			var optArr = str.split(",")
+			for (var i=0;i<optArr.length;i++){
+				var entryArr = optArr[i].split("=");
+				obj[entryArr[0]] = entryArr[1];
+			}
+		}
+		return obj; 
+	}
     var movie = this.browserbot.findElement(locator);
-    var res = movie.wrappedJSObject['fp_type'](optionObj);
-    try {
-        var msg = res.message;
-        throw msg;
-    } catch(err) {}
+    var res = movie.wrappedJSObject['fp_type'](strToObj(options));
+	if (typeof(res) == "object"){ throw new SeleniumError(res.message); }
 };
 
 //x.doFlashSelect("id=devMovie", "chain=id:subPanel/name:comboTest", "label=Alex")
 //{option:"label=Alex","flash":"chain=id:subPanel/name:comboTest"}
 Selenium.prototype.doFlexSelect = function(locator, options) {
-    //Turn options JSON into an object
-    var optionObj = eval("(" + options + ")");
-
+	var strToObj = function(str){
+		var obj = {};
+		try { obj = eval("(" + str + ")") }
+		catch(err) {
+			var regExp = /\s+/g;
+			str = str.replace(regExp,'')
+			var optArr = str.split(",")
+			for (var i=0;i<optArr.length;i++){
+				var entryArr = optArr[i].split("=");
+				obj[entryArr[0]] = entryArr[1];
+			}
+		}
+		return obj; 
+	}
     //Lookup the flash movie
     var movie = this.browserbot.findElement(locator);
-    var res = movie.wrappedJSObject['fp_select'](optionObj);
-    try {
-        var msg = res.message;
-        throw msg;
-    } catch(err) {}
+    var res = movie.wrappedJSObject['fp_select'](strToObj(options));
+	if (typeof(res) == "object"){ throw new SeleniumError(res.message); }
 };
 
 //x.doFlashDragDropElemToElem("id=devMovie", "chain=name:dragSprite", "optchain=id:subPanel")
 //{chain:"name:dragSprite", optchain:"name:testTextArea"}
 Selenium.prototype.doFlexDragDropElemToElem = function(locator, options) {
-    //Turn options JSON into an object
-    var optionObj = eval("(" + options + ")");
-
+	var strToObj = function(str){
+		var obj = {};
+		try { obj = eval("(" + str + ")") }
+		catch(err) {
+			var regExp = /\s+/g;
+			str = str.replace(regExp,'')
+			var optArr = str.split(",")
+			for (var i=0;i<optArr.length;i++){
+				var entryArr = optArr[i].split("=");
+				obj[entryArr[0]] = entryArr[1];
+			}
+		}
+		return obj; 
+	}
     var movie = this.browserbot.findElement(locator);
-    var res = movie.wrappedJSObject['fp_dragDropElemToElem'](optionObj);
-    try {
-        var msg = res.message;
-        throw msg;
-    } catch(err) {}
+    var res = movie.wrappedJSObject['fp_dragDropElemToElem'](strToObj(options));
+	if (typeof(res) == "object"){ throw new SeleniumError(res.message); }
 };
 
 //x.doFlashDragDropElemToElem("id=devMovie", "chain=name:dragSprite", "optchain=id:subPanel")
 Selenium.prototype.doFlexDragDropToCoords = function(locator, options) {
-    //Turn options JSON into an object
-    var optionObj = eval("(" + options + ")");
+	var strToObj = function(str){
+		var obj = {};
+		try { obj = eval("(" + str + ")") }
+		catch(err) {
+			var regExp = /\s+/g;
+			str = str.replace(regExp,'')
+			var optArr = str.split(",")
+			for (var i=0;i<optArr.length;i++){
+				var entryArr = optArr[i].split("=");
+				obj[entryArr[0]] = entryArr[1];
+			}
+		}
+		return obj; 
+	}
     var movie = this.browserbot.findElement(locator);
-    var res = movie.wrappedJSObject['fp_dragDropToCoords'](optionObj);
-    try {
-        var msg = res.message;
-        throw msg;
-    } catch(err) {}
+    var res = movie.wrappedJSObject['fp_dragDropToCoords'](strToObj(options));
+	if (typeof(res) == "object"){ throw new SeleniumError(res.message); }
 };
 
 Selenium.prototype.doFlexAssertDisplayObject = function(locator, options) {
-    var optionObj = eval("(" + options + ")");
-
+	var strToObj = function(str){
+		var obj = {};
+		try { obj = eval("(" + str + ")") }
+		catch(err) {
+			var regExp = /\s+/g;
+			str = str.replace(regExp,'')
+			var optArr = str.split(",")
+			for (var i=0;i<optArr.length;i++){
+				var entryArr = optArr[i].split("=");
+				obj[entryArr[0]] = entryArr[1];
+			}
+		}
+		return obj; 
+	}
     var movie = this.browserbot.findElement(locator);
-    var res = movie.wrappedJSObject['fp_dragDropToCoords'](optionObj);
-    try {
-        var msg = res.message;
-        throw msg;
-    } catch(err) {}
+    var res = movie.wrappedJSObject['fp_assertDisplayObject'](strToObj(options));
+	if (typeof(res) == "object"){ throw new SeleniumError(res.message); }
 };
 
 
 Selenium.prototype.doFlexAssertTextIn = function(locator, options) {
-    //Turn options JSON into an object
-    var optionObj = eval("(" + options + ")");
+	var strToObj = function(str){
+		var obj = {};
+		try { obj = eval("(" + str + ")") }
+		catch(err) {
+			var regExp = /\s+/g;
+			str = str.replace(regExp,'')
+			var optArr = str.split(",")
+			for (var i=0;i<optArr.length;i++){
+				var entryArr = optArr[i].split("=");
+				obj[entryArr[0]] = entryArr[1];
+			}
+		}
+		return obj; 
+	}
     var movie = this.browserbot.findElement(locator);
-    var res = movie.wrappedJSObject['fp_assertTextIn'](optionObj);
-    try {
-        var msg = res.message;
-        throw msg;
-    } catch(err) {}
+    var res = movie.wrappedJSObject['fp_assertTextIn'](strToObj(options));
+	if (typeof(res) == "object"){ throw new SeleniumError(res.message); }
 };
 
 Selenium.prototype.doFlexAssertText = function(locator, options) {
-    //Turn options JSON into an object
-    var optionObj = eval("(" + options + ")");
-
+	var strToObj = function(str){
+		var obj = {};
+		try { obj = eval("(" + str + ")") }
+		catch(err) {
+			var regExp = /\s+/g;
+			str = str.replace(regExp,'')
+			var optArr = str.split(",")
+			for (var i=0;i<optArr.length;i++){
+				var entryArr = optArr[i].split("=");
+				obj[entryArr[0]] = entryArr[1];
+			}
+		}
+		return obj; 
+	}
     var movie = this.browserbot.findElement(locator);
-    var res = movie.wrappedJSObject['fp_assertText'](optionObj);
-    try {
-        var msg = res.message;
-        throw msg;
-    } catch(err) {}
+    var res = movie.wrappedJSObject['fp_assertText'](strToObj(options));
+	if (typeof(res) == "object"){ throw new SeleniumError(res.message); }
 };
 
 Selenium.prototype.doFlexAssertProperty = function(locator, options) {
-    //Turn options JSON into an object
-    var optionObj = eval("(" + options + ")");
-
+	var strToObj = function(str){
+		var obj = {};
+		try { obj = eval("(" + str + ")") }
+		catch(err) {
+			var regExp = /\s+/g;
+			str = str.replace(regExp,'')
+			var optArr = str.split(",")
+			for (var i=0;i<optArr.length;i++){
+				var entryArr = optArr[i].split("=");
+				obj[entryArr[0]] = entryArr[1];
+			}
+		}
+		return obj; 
+	}
     var movie = this.browserbot.findElement(locator);
-    var res = movie.wrappedJSObject['fp_assertProperty'](optionObj);
-    try {
-        var msg = res.message;
-        throw msg;
-    } catch(err) {}
+    var res = movie.wrappedJSObject['fp_assertProperty'](strToObj(options));
+	if (typeof(res) == "object"){ throw new SeleniumError(res.message); }
 };

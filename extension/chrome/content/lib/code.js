@@ -51,7 +51,16 @@ window.flexpilot = new function() {
 
 					//obj.params.flash = 'chain='+obj.chain;
 					obj.params.chain = obj.chain;
-					value = nativeJSON.encode(obj.params); 
+					value = nativeJSON.encode(obj.params);
+					//remove all of the json and make it selenium simple
+					var regExp = /{/g;
+					value = value.replace(regExp,'')
+					var regExp = /}/g;
+					value = value.replace(regExp,'')
+					var regExp = /":"/g;
+					value = value.replace(regExp,'=')
+					var regExp = /"/g;
+					value = value.replace(regExp,'')
 				}
 				var locator = window.editor.flexTarget.id;
 				window.editor.addCommand(flashMethod, 'id='+locator, value, win);
