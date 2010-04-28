@@ -31,6 +31,16 @@ window.flexpilot = new function() {
 		return windows;
     };
 
+	this.log = function(str){
+		var lvdoc = document.getElementById('logView').contentWindow.document;
+		var li = lvdoc.createElement('li');
+		li.style.color = "red";
+		li.style.fontWeight = "bold";
+		li.innerHTML = "[warn] "+str;
+		var log = lvdoc.getElementById('log')
+		log.appendChild(li);
+	}
+
     this.record = function(){
 		var windows = _this._getNavWindows();
 
@@ -70,7 +80,7 @@ window.flexpilot = new function() {
 			var embeds = win.document.getElementsByTagName("embed");
 			var objects = win.document.getElementsByTagName("object");
 			if ((embeds.length == 0) && (objects.length == 0)){
-				alert("We were unable to find any flex to record.");
+				this.log("We were unable to find any Flex Applications to record against.");
 			}	
 		
 			//star the explorers on the page
@@ -98,6 +108,10 @@ window.flexpilot = new function() {
 	
 		for (var w=0; w<windows.length; w++){
 			var win = windows[w].content.wrappedJSObject;
+
+			win.fp_explorerStopped = function(){
+				window.focus();	
+			}
 		
 			//define the call out js method
 			win.fp_explorerSelect = function(obj){
@@ -117,7 +131,7 @@ window.flexpilot = new function() {
 			var embeds = win.document.getElementsByTagName("embed");
 			var objects = win.document.getElementsByTagName("object");
 			if ((embeds.length == 0) && (objects.length == 0)){
-				alert("We were unable to find any flex to explore.");
+				this.log("We were unable to find any Flex Applications to explore!");
 			}	
 		
 			//star the explorers on the page
@@ -172,7 +186,18 @@ window.flexpilot = new function() {
 document.getElementById('play-button').addEventListener('click', function(e){ flexpilot.off();  }, false);
 document.getElementById('play-suite-button').addEventListener('click', function(e){ flexpilot.off();  }, false);
 window.addEventListener("load", function(e){
-	document.getElementById('record-button').click();
+	if (editor.recordingEnabled){ document.getElementById('record-button').click(); }
+	var container = document.getElementById('commandDetail');
+	var center = document.createElement('center');
+	
+	var btn = document.createElement('button');
+	btn.label = "Flex Explorer";
+	btn.value = "Flex Explorer";
+	btn.textContent = "Flex Explorer";
+	btn.addEventListener('click', function(e){ flexpilot.explore(); }, false);
+
+	center.appendChild(btn)
+	container.appendChild(center);
 }, false);
 document.getElementById('record-button').addEventListener('click', function(e) { 
 	if (editor.recordingEnabled){

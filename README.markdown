@@ -35,5 +35,8 @@ Apache License, Version 2
 	* Click FlexPilot
 	* Click Turn OFF
 
+### Selenium RC
+	* Download user-extensions.js from the root of this repo and specify that Selenium RC use that
+
 - - -
 adam.christian@gmail.com.
