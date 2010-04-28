@@ -69,6 +69,9 @@ window.flexpilot = new function() {
 			//get all movies on page
 			var embeds = win.document.getElementsByTagName("embed");
 			var objects = win.document.getElementsByTagName("object");
+			if ((embeds.length == 0) && (objects.length == 0)){
+				alert("We were unable to find any flex to record.");
+			}	
 		
 			//star the explorers on the page
 			for (var i=0;i<embeds.length;i++){
@@ -113,6 +116,9 @@ window.flexpilot = new function() {
 			//get all movies on page
 			var embeds = win.document.getElementsByTagName("embed");
 			var objects = win.document.getElementsByTagName("object");
+			if ((embeds.length == 0) && (objects.length == 0)){
+				alert("We were unable to find any flex to explore.");
+			}	
 		
 			//star the explorers on the page
 			for (var i=0;i<embeds.length;i++){
@@ -161,3 +167,18 @@ window.flexpilot = new function() {
 		}
     };
 };
+
+//Add some listeners
+document.getElementById('play-button').addEventListener('click', function(e){ flexpilot.off();  }, false);
+document.getElementById('play-suite-button').addEventListener('click', function(e){ flexpilot.off();  }, false);
+window.addEventListener("load", function(e){
+	document.getElementById('record-button').click();
+}, false);
+document.getElementById('record-button').addEventListener('click', function(e) { 
+	if (editor.recordingEnabled){
+		flexpilot.off();
+	} else {
+		flexpilot.record();
+	} 
+}, false);
+//document.getElementById('commandTarget').addEventListener('click', function(e){ flexpilot.explore(); }, false);
