@@ -13,22 +13,22 @@
   </function>
   <function name="flexType">
     <param name="locator">an <a href="#locators">element locator</a></param>
-    <param name="options">flex element locator, text - (JSON Object)</param>
+    <param name="options">flex element locator, text</param>
     <comment>type 'text' into the display object found by the locator lookup</comment>
   </function>
   <function name="flexSelect">
     <param name="locator">an <a href="#locators">element locator</a></param>
-    <param name="options">flex element locator, [label,val] - (JSON Object)</param>
+    <param name="options">flex element locator, [label,val]</param>
     <comment>select option from the specified combo box display object</comment>
   </function>
   <function name="flexDragDropElemToElem">
     <param name="locator">an <a href="#locators">element locator</a></param>
-    <param name="options">flex element locator, opt[locator] - (JSON Object)</param>
+    <param name="options">flex element locator, opt[locator]</param>
     <comment>drag a display object to the coordinates of another display object</comment>
   </function>
   <function name="flexDragDropToCoords">
     <param name="locator">an <a href="#locators">element locator</a></param>
-    <param name="options">flex element locator, coords - (JSON Object)</param>
+    <param name="options">flex element locator, coords</param>
     <comment>drag a display object ‘locator’ to a specified x,y</comment>
   </function>
   <function name="flexAssertDisplayObject">
@@ -37,17 +37,17 @@
   </function>
   <function name="flexAssertTextIn">
     <param name="locator">an <a href="#locators">element locator</a></param>
-    <param name="validator">validator - (JSON Object)</param>
+    <param name="validator">validator</param>
     <comment>assert a display object ‘locator’, contains a specified property</comment>
   </function>
   <function name="flexAssertText">
     <param name="locator">an <a href="#locators">element locator</a></param>
-    <param name="validator">validator - (JSON Object)</param>
+    <param name="validator">validator</param>
     <comment>assert a specified input field ‘locator’ equals text ‘validator’</comment>
   </function>
   <function name="flexAssertProperty">
     <param name="locator">an <a href="#locators">element locator</a></param>
-    <param name="validator">attrib|value - (JSON Object)</param>
+    <param name="validator">attrib|value</param>
     <comment>assert a specified input field ‘locator’ contains text ‘validator’</comment>
   </function>
 </apidoc>
