@@ -33,8 +33,9 @@ Selenium.prototype.doFlexClick = function(locator, flashLoc) {
 		}
 		return obj; 
 	}
-    var movie = this.browserbot.findElement(locator);
-    var res = movie.wrappedJSObject['fp_click'](strToObj(flashLoc));
+  
+  var movie = this.browserbot.findElement(locator);
+  var res = movie.wrappedJSObject['fp_click'](strToObj(flashLoc));
 	if (typeof(res) == "object"){ throw new SeleniumError(res.message); }
 };
 
@@ -53,8 +54,9 @@ Selenium.prototype.doFlexDoubleClick = function(locator, flashLoc) {
 		}
 		return obj; 
 	}
-    var movie = this.browserbot.findElement(locator);
-    var res = movie.wrappedJSObject['fp_doubleClick'](strToObj(flashLoc));
+  
+  var movie = this.browserbot.findElement(locator);
+  var res = movie.wrappedJSObject['fp_doubleClick'](strToObj(flashLoc));
 	if (typeof(res) == "object"){ throw new SeleniumError(res.message); }
 };
 
@@ -77,8 +79,9 @@ Selenium.prototype.doFlexType = function(locator, options) {
 		}
 		return obj; 
 	}
-    var movie = this.browserbot.findElement(locator);
-    var res = movie.wrappedJSObject['fp_type'](strToObj(options));
+  
+  var movie = this.browserbot.findElement(locator);
+  var res = movie.wrappedJSObject['fp_type'](strToObj(options));
 	if (typeof(res) == "object"){ throw new SeleniumError(res.message); }
 };
 
@@ -99,9 +102,10 @@ Selenium.prototype.doFlexSelect = function(locator, options) {
 		}
 		return obj; 
 	}
-    //Lookup the flash movie
-    var movie = this.browserbot.findElement(locator);
-    var res = movie.wrappedJSObject['fp_select'](strToObj(options));
+  
+  //Lookup the flash movie
+  var movie = this.browserbot.findElement(locator);
+  var res = movie.wrappedJSObject['fp_select'](strToObj(options));
 	if (typeof(res) == "object"){ throw new SeleniumError(res.message); }
 };
 
@@ -122,8 +126,9 @@ Selenium.prototype.doFlexDragDropElemToElem = function(locator, options) {
 		}
 		return obj; 
 	}
-    var movie = this.browserbot.findElement(locator);
-    var res = movie.wrappedJSObject['fp_dragDropElemToElem'](strToObj(options));
+  
+  var movie = this.browserbot.findElement(locator);
+  var res = movie.wrappedJSObject['fp_dragDropElemToElem'](strToObj(options));
 	if (typeof(res) == "object"){ throw new SeleniumError(res.message); }
 };
 
@@ -143,8 +148,9 @@ Selenium.prototype.doFlexDragDropToCoords = function(locator, options) {
 		}
 		return obj; 
 	}
-    var movie = this.browserbot.findElement(locator);
-    var res = movie.wrappedJSObject['fp_dragDropToCoords'](strToObj(options));
+  
+  var movie = this.browserbot.findElement(locator);
+  var res = movie.wrappedJSObject['fp_dragDropToCoords'](strToObj(options));
 	if (typeof(res) == "object"){ throw new SeleniumError(res.message); }
 };
 
@@ -163,8 +169,9 @@ Selenium.prototype.doFlexAssertDisplayObject = function(locator, options) {
 		}
 		return obj; 
 	}
-    var movie = this.browserbot.findElement(locator);
-    var res = movie.wrappedJSObject['fp_assertDisplayObject'](strToObj(options));
+  
+  var movie = this.browserbot.findElement(locator);
+  var res = movie.wrappedJSObject['fp_assertDisplayObject'](strToObj(options));
 	if (typeof(res) == "object"){ throw new SeleniumError(res.message); }
 };
 
@@ -184,8 +191,9 @@ Selenium.prototype.doFlexAssertTextIn = function(locator, options) {
 		}
 		return obj; 
 	}
-    var movie = this.browserbot.findElement(locator);
-    var res = movie.wrappedJSObject['fp_assertTextIn'](strToObj(options));
+  
+  var movie = this.browserbot.findElement(locator);
+  var res = movie.wrappedJSObject['fp_assertTextIn'](strToObj(options));
 	if (typeof(res) == "object"){ throw new SeleniumError(res.message); }
 };
 
@@ -204,8 +212,9 @@ Selenium.prototype.doFlexAssertText = function(locator, options) {
 		}
 		return obj; 
 	}
-    var movie = this.browserbot.findElement(locator);
-    var res = movie.wrappedJSObject['fp_assertText'](strToObj(options));
+  
+  var movie = this.browserbot.findElement(locator);
+  var res = movie.wrappedJSObject['fp_assertText'](strToObj(options));
 	if (typeof(res) == "object"){ throw new SeleniumError(res.message); }
 };
 
@@ -224,7 +233,8 @@ Selenium.prototype.doFlexAssertProperty = function(locator, options) {
 		}
 		return obj; 
 	}
-    var movie = this.browserbot.findElement(locator);
-    var res = movie.wrappedJSObject['fp_assertProperty'](strToObj(options));
+  
+  var movie = this.browserbot.findElement(locator);
+  var res = movie.wrappedJSObject['fp_assertProperty'](strToObj(options));
 	if (typeof(res) == "object"){ throw new SeleniumError(res.message); }
 };
