@@ -38,5 +38,12 @@ Apache License, Version 2
 ### Selenium RC
 	* Download user-extensions.js from the root of this repo and specify that Selenium RC use that
 
+
+### Selenium RC Client Libraries
+
+    * Ruby: http://github.com/admc/flex-pilot-x/tree/master/client/ruby/
+    * Python: http://github.com/admc/flex-pilot-x/tree/master/client/python/
+    * Java: http://github.com/admc/flex-pilot-x/tree/master/client/java/
+
 - - -
 adam.christian@gmail.com.
