@@ -1,4 +1,4 @@
-/*
+ /*
 Copyright 2009-2010, Sauce Labs
 
  Licensed under the Apache License, Version 2.0 (the "License");
@@ -23,10 +23,9 @@ Selenium.prototype.doFlexClick = function(locator, flashLoc) {
     var obj = {};
     try { obj = eval("(" + str + ")") }
     catch(err) {
-      var regExp = /\s+/g;
-      str = str.replace(regExp,'')
       var optArr = str.split(",")
       for (var i=0;i<optArr.length;i++){
+        optArr[i] = optArr[i].replace(/^\s+|\s+$/, '');
         var entryArr = optArr[i].split("=");
         obj[entryArr[0]] = entryArr[1];
       }
@@ -49,10 +48,9 @@ Selenium.prototype.doFlexDoubleClick = function(locator, flashLoc) {
     var obj = {};
     try { obj = eval("(" + str + ")") }
     catch(err) {
-      var regExp = /\s+/g;
-      str = str.replace(regExp,'')
       var optArr = str.split(",")
       for (var i=0;i<optArr.length;i++){
+        optArr[i] = optArr[i].replace(/^\s+|\s+$/, '');
         var entryArr = optArr[i].split("=");
         obj[entryArr[0]] = entryArr[1];
       }
@@ -78,10 +76,9 @@ Selenium.prototype.doFlexType = function(locator, options) {
     var obj = {};
     try { obj = eval("(" + str + ")") }
     catch(err) {
-      var regExp = /\s+/g;
-      str = str.replace(regExp,'')
       var optArr = str.split(",")
       for (var i=0;i<optArr.length;i++){
+        optArr[i] = optArr[i].replace(/^\s+|\s+$/, '');
         var entryArr = optArr[i].split("=");
         obj[entryArr[0]] = entryArr[1];
       }
@@ -105,10 +102,9 @@ Selenium.prototype.doFlexSelect = function(locator, options) {
     var obj = {};
     try { obj = eval("(" + str + ")") }
     catch(err) {
-      var regExp = /\s+/g;
-      str = str.replace(regExp,'')
       var optArr = str.split(",")
       for (var i=0;i<optArr.length;i++){
+        optArr[i] = optArr[i].replace(/^\s+|\s+$/, '');
         var entryArr = optArr[i].split("=");
         obj[entryArr[0]] = entryArr[1];
       }
@@ -133,10 +129,9 @@ Selenium.prototype.doFlexDragDropElemToElem = function(locator, options) {
     var obj = {};
     try { obj = eval("(" + str + ")") }
     catch(err) {
-      var regExp = /\s+/g;
-      str = str.replace(regExp,'')
       var optArr = str.split(",")
       for (var i=0;i<optArr.length;i++){
+        optArr[i] = optArr[i].replace(/^\s+|\s+$/, '');
         var entryArr = optArr[i].split("=");
         obj[entryArr[0]] = entryArr[1];
       }
@@ -159,10 +154,9 @@ Selenium.prototype.doFlexDragDropToCoords = function(locator, options) {
     var obj = {};
     try { obj = eval("(" + str + ")") }
     catch(err) {
-      var regExp = /\s+/g;
-      str = str.replace(regExp,'')
       var optArr = str.split(",")
       for (var i=0;i<optArr.length;i++){
+        optArr[i] = optArr[i].replace(/^\s+|\s+$/, '');
         var entryArr = optArr[i].split("=");
         obj[entryArr[0]] = entryArr[1];
       }
@@ -184,10 +178,9 @@ Selenium.prototype.doFlexAssertDisplayObject = function(locator, options) {
     var obj = {};
     try { obj = eval("(" + str + ")") }
     catch(err) {
-      var regExp = /\s+/g;
-      str = str.replace(regExp,'')
       var optArr = str.split(",")
       for (var i=0;i<optArr.length;i++){
+        optArr[i] = optArr[i].replace(/^\s+|\s+$/, '');
         var entryArr = optArr[i].split("=");
         obj[entryArr[0]] = entryArr[1];
       }
@@ -209,10 +202,9 @@ Selenium.prototype.doFlexAssertTextIn = function(locator, options) {
     var obj = {};
     try { obj = eval("(" + str + ")") }
     catch(err) {
-      var regExp = /\s+/g;
-      str = str.replace(regExp,'')
       var optArr = str.split(",")
       for (var i=0;i<optArr.length;i++){
+        optArr[i] = optArr[i].replace(/^\s+|\s+$/, '');
         var entryArr = optArr[i].split("=");
         obj[entryArr[0]] = entryArr[1];
       }
@@ -234,10 +226,9 @@ Selenium.prototype.doFlexAssertText = function(locator, options) {
     var obj = {};
     try { obj = eval("(" + str + ")") }
     catch(err) {
-      var regExp = /\s+/g;
-      str = str.replace(regExp,'')
       var optArr = str.split(",")
       for (var i=0;i<optArr.length;i++){
+        optArr[i] = optArr[i].replace(/^\s+|\s+$/, '');
         var entryArr = optArr[i].split("=");
         obj[entryArr[0]] = entryArr[1];
       }
@@ -259,10 +250,9 @@ Selenium.prototype.doFlexAssertProperty = function(locator, options) {
     var obj = {};
     try { obj = eval("(" + str + ")") }
     catch(err) {
-      var regExp = /\s+/g;
-      str = str.replace(regExp,'')
       var optArr = str.split(",")
       for (var i=0;i<optArr.length;i++){
+        optArr[i] = optArr[i].replace(/^\s+|\s+$/, '');
         var entryArr = optArr[i].split("=");
         obj[entryArr[0]] = entryArr[1];
       }

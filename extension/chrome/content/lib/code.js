@@ -74,6 +74,7 @@ window.flexpilot = new function() {
 				}
 				var locator = window.editor.flexTarget.id;
 				window.editor.addCommand(flashMethod, 'id='+locator, value, win);
+				return true;
 			}
 		
 			//get all movies on page
@@ -110,7 +111,8 @@ window.flexpilot = new function() {
 			var win = windows[w].content.wrappedJSObject;
 
 			win.fp_explorerStopped = function(){
-				window.focus();	
+				window.focus();
+				return true;
 			}
 		
 			//define the call out js method
@@ -125,6 +127,7 @@ window.flexpilot = new function() {
 				var valueTarget = document.getElementById('commandTarget');
 				valueTarget.value = "id="+window.editor.flexTarget.id;
 				triggerEvent(valueTarget, 'input', true);
+				return true;
 			}
 
 			//get all movies on page
