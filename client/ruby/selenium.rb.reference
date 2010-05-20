@@ -252,6 +252,10 @@ module Selenium
             remote_control_command("click", [locator,])
         end
         
+        def wait_for_flex_ready(locator,timeout):
+            remote_control_command("waitForFlexReady", [locator,timeout])
+        end
+        
         def flex_click(locator,flashLoc):
             remote_control_command("flexClick", [locator,flashLoc])
         end

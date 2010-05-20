@@ -269,6 +269,9 @@ class selenium:
             raise ValueError, "result is neither 'true' nor 'false': " + boolarr[i]
         return boolarr
     
+    def wait_for_flex_ready(self,locator, timeout):
+        self.do_command("waitForFlexReady", [locator,timeout])
+
     def flex_click(self,locator,flashLoc):
         """
         Clicks the specified display object (flashLoc), within the specified flex/flash movie (locator)

@@ -218,3 +218,11 @@ Selenium.prototype.doFlexAssertProperty = function(locator, options) {
   var res = movie['fp_assertProperty'](strToObj(options));
   if (typeof(res) == "object"){ throw new SeleniumError(res.message); }
 };
+
+Selenium.prototype.isFlexReady = function(locator) {
+  var movie = this.browserbot.findElement(locator);
+  if (typeof(movie.fp_click) != "function"){ 
+    throw new SeleniumError("Flex movie not ready"); 
+  }
+  else { return true; }
+};

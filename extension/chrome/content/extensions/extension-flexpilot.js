@@ -227,45 +227,58 @@ Selenium.prototype.doFlexAssertProperty = function(locator, options) {
   if (typeof(res) == "object"){ throw new SeleniumError(res.message); }
 };
 
+Selenium.prototype.isFlexReady = function(locator) {
+  var movie = this.browserbot.findElement(locator);
+  if (typeof(movie.wrappedJSObject.fp_click) != "function"){ 
+    throw new SeleniumError("Flex movie not ready"); 
+  }
+  else { return true; }
+};
+
 // If sauce RC is present we add all the remote commands
 try {
-    RemoteSelenium.prototype.doFlexClick = function(locator, flashLoc) {
-       return this.doCommand("flexClick", [locator, flashLoc], this.handleResults);
-    };
+  RemoteSelenium.prototype.doFlexClick = function(locator, flashLoc) {
+     return this.doCommand("flexClick", [locator, flashLoc], this.handleResults);
+  };
 
-    RemoteSelenium.prototype.doFlexDoubleClick = function(locator, flashLoc) {
-      return this.doCommand("flexDoubleClick", [locator, flashLoc], this.handleResults);
-    };
+  RemoteSelenium.prototype.doFlexDoubleClick = function(locator, flashLoc) {
+    return this.doCommand("flexDoubleClick", [locator, flashLoc], this.handleResults);
+  };
 
-    RemoteSelenium.prototype.doFlexType = function(locator, options) {
-      return this.doCommand("flexType", [locator, options], this.handleResults);
-    };
+  RemoteSelenium.prototype.doFlexType = function(locator, options) {
+    return this.doCommand("flexType", [locator, options], this.handleResults);
+  };
 
-    RemoteSelenium.prototype.doFlexSelect = function(locator, options) {
-      return this.doCommand("flexSelect", [locator, options], this.handleResults);
-    };
+  RemoteSelenium.prototype.doFlexSelect = function(locator, options) {
+    return this.doCommand("flexSelect", [locator, options], this.handleResults);
+  };
 
-    RemoteSelenium.prototype.doFlexDragDropElemToElem = function(locator, options) {
-      return this.doCommand("flexDragDropElemToElem", [locator, options], this.handleResults);
-    };
+  RemoteSelenium.prototype.doFlexDragDropElemToElem = function(locator, options) {
+    return this.doCommand("flexDragDropElemToElem", [locator, options], this.handleResults);
+  };
 
-    RemoteSelenium.prototype.doFlexDragDropToCoords = function(locator, options) {
-      return this.doCommand("flexDragDropToCoords", [locator, options], this.handleResults);
-    };
+  RemoteSelenium.prototype.doFlexDragDropToCoords = function(locator, options) {
+    return this.doCommand("flexDragDropToCoords", [locator, options], this.handleResults);
+  };
 
-    RemoteSelenium.prototype.doFlexAssertDisplayObject = function(locator, options) {
-      return this.doCommand("flexAssertDisplayObject", [locator, options], this.handleResults);
-    };
+  RemoteSelenium.prototype.doFlexAssertDisplayObject = function(locator, options) {
+    return this.doCommand("flexAssertDisplayObject", [locator, options], this.handleResults);
+  };
 
-    RemoteSelenium.prototype.doFlexAssertTextIn = function(locator, options) {
-      return this.doCommand("flexAssertTextIn", [locator, options], this.handleResults);
-    };
+  RemoteSelenium.prototype.doFlexAssertTextIn = function(locator, options) {
+    return this.doCommand("flexAssertTextIn", [locator, options], this.handleResults);
+  };
 
-    RemoteSelenium.prototype.doFlexAssertText = function(locator, options) {
-      return this.doCommand("flexAssertText", [locator, options], this.handleResults);
-    };
+  RemoteSelenium.prototype.doFlexAssertText = function(locator, options) {
+    return this.doCommand("flexAssertText", [locator, options], this.handleResults);
+  };
 
-    RemoteSelenium.prototype.doFlexAssertProperty = function(locator, options) {
-      return this.doCommand("flexAssertProperty", [locator, options], this.handleResults);
-    };
+  RemoteSelenium.prototype.doFlexAssertProperty = function(locator, options) {
+    return this.doCommand("flexAssertProperty", [locator, options], this.handleResults);
+  };
+
+  RemoteSelenium.prototype.isFlexReady = function(locator) {
+     return this.doCommand("flexReady", [locator], this.handleResults);
+  };
+
 } catch (e) { /*must be in selenium RC */ }

@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <apidoc>
+  <function name="waitForFlexReady">
+    <param name="locator">an <a href="#locators">element locator</a></param>
+    <param name="timeout">number of milliseconds to wait before timeout</param>
+    <comment>wait for flex framework ready</comment>
+  </function>
   <function name="flexClick">
     <param name="locator">an <a href="#locators">element locator</a></param>
     <param name="flashLoc">element locator</param>

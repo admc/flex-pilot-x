@@ -167,45 +167,49 @@ public class DefaultSelenium implements Selenium {
 		commandProcessor.doCommand("click", new String[] {locator,});
 	}
 
-  public void flexClick(String locator,String flashLoc):
-      commandProcessor.doCommand("flexClick", new String[] {locator,flashLoc})
-  }
-  
-  public void flexDoubleClick(String locator,String flashLoc):
-      commandProcessor.doCommand("flexDoubleClick", new String[]{locator,flashLoc})        
-  }
-  
-  public void flexSelect(String locator,String options):
-      commandProcessor.doCommand("flexSelect", new String[] {locator,options})
-  }
-  
-  public void flexType(String locator,String options):
-      commandProcessor.doCommand("flexType", new String[] {locator,options})
-  }
-  
-  public void flexDragDropElemToElem(String locator,String options):
-      commandProcessor.doCommand("flexDragDropElemToElem", new String[] {locator,options})
-  }
-  
-  public void flexDragDropToCoords(String locator,String options):
-      commandProcessor.doCommand("flexDragDropToCoords", new String[] {locator,options})
-  }
-  
-  public void flexAssertDisplayObject(String locator,String options):
-      commandProcessor.doCommand("flexAssertDisplayObject", new String[] {locator,options})
-  }
-  
-  public void flexAssertText(String locator,String options):
-      commandProcessor.doCommand("flexAssertText", new String[] {locator,options})
-  }
-  
-  public void flexAssertTextIn(String locator,String options):
-      commandProcessor.doCommand("flexAssertText", new String[] {locator,options})
-  }
-  
-  public void flexAssertProperty(String locator,String options):
-      commandProcessor.doCommand("flexAssertProperty", new String[] {locator,options})    
-  }
+    public void waitForFlexReady(String locator,String timeout):
+        commandProcessor.doCommand("waitForFlexReady", new String[] {locator,timeout})
+    }
+
+    public void flexClick(String locator,String flashLoc):
+        commandProcessor.doCommand("flexClick", new String[] {locator,flashLoc})
+    }
+    
+    public void flexDoubleClick(String locator,String flashLoc):
+        commandProcessor.doCommand("flexDoubleClick", new String[]{locator,flashLoc})        
+    }
+    
+    public void flexSelect(String locator,String options):
+        commandProcessor.doCommand("flexSelect", new String[] {locator,options})
+    }
+    
+    public void flexType(String locator,String options):
+        commandProcessor.doCommand("flexType", new String[] {locator,options})
+    }
+    
+    public void flexDragDropElemToElem(String locator,String options):
+        commandProcessor.doCommand("flexDragDropElemToElem", new String[] {locator,options})
+    }
+    
+    public void flexDragDropToCoords(String locator,String options):
+        commandProcessor.doCommand("flexDragDropToCoords", new String[] {locator,options})
+    }
+    
+    public void flexAssertDisplayObject(String locator,String options):
+        commandProcessor.doCommand("flexAssertDisplayObject", new String[] {locator,options})
+    }
+    
+    public void flexAssertText(String locator,String options):
+        commandProcessor.doCommand("flexAssertText", new String[] {locator,options})
+    }
+    
+    public void flexAssertTextIn(String locator,String options):
+        commandProcessor.doCommand("flexAssertText", new String[] {locator,options})
+    }
+    
+    public void flexAssertProperty(String locator,String options):
+        commandProcessor.doCommand("flexAssertProperty", new String[] {locator,options})    
+    }
 
 	public void doubleClick(String locator) {
 		commandProcessor.doCommand("doubleClick", new String[] {locator,});
