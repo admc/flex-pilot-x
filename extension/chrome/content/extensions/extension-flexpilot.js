@@ -278,7 +278,7 @@ try {
   };
 
   RemoteSelenium.prototype.isFlexReady = function(locator) {
-     return this.doCommand("flexReady", [locator], this.handleResults);
+     return this.doCommand("isFlexReady", [locator], this.handleResults);
   };
 
 } catch (e) { /*must be in selenium RC */ }
