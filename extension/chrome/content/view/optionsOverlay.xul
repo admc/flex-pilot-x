@@ -9,10 +9,11 @@
   <menupopup id="options-popup">
 	<menu id="flexMenu" label="FlexPilot">
 		<menupopup id="menu_FlexPopup">
-			<menuitem id="flashExplore" label="Explore" oncommand="flexpilot.explore();"/>
+			<!-- <menuitem id="flashExplore" label="Explore" oncommand="flexpilot.explore();"/>
 			<menuitem id="flashRecord" label="Record" oncommand="flexpilot.record();"/>
 			<menuseparator/>
-			<menuitem id="flashOff" label="Turn OFF" oncommand="flexpilot.off();"/>
+			<menuitem id="flashOff" label="Turn OFF" oncommand="flexpilot.off();"/> -->
+			<menuitem id="flashEnabled" label="Enabled - Need Documentation? (click)" oncommand="window.open('http://wiki.github.com/admc/flex-pilot-x/');"/>
 		</menupopup>
 	</menu>
   </menupopup>

@@ -7,10 +7,11 @@
 
 	<menu id="flexMenu" label="Flex">
 		<menupopup id="menu_FlexPopup">
-			<menuitem id="flashExplore" label="Flex Explore" oncommand="window.editor.exploreFlash();"/>
+			<!-- <menuitem id="flashExplore" label="Flex Explore" oncommand="window.editor.exploreFlash();"/>
 			<menuitem id="flashRecord" label="Flex Record" oncommand="window.editor.recordFlash();"/>
 			<menuseparator/>
-			<menuitem id="flashOff" label="Turn OFF Flex Tools" oncommand="window.editor.offFlash();"/>
+			<menuitem id="flashOff" label="Turn OFF Flex Tools" oncommand="window.editor.offFlash();"/> -->
+			<menuitem id="flashEnabled" label="Enabled - Need Documentation? (click)" oncommand="window.open('http://wiki.github.com/admc/flex-pilot-x/');"/>
 		</menupopup>
 
 </overlay>
