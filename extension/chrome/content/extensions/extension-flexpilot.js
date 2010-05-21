@@ -277,8 +277,7 @@ try {
     return this.doCommand("flexAssertProperty", [locator, options], this.handleResults);
   };
 
-  RemoteSelenium.prototype.isFlexReady = function(locator) {
-     return this.doCommand("isFlexReady", [locator], this.handleResults);
+  RemoteSelenium.prototype.doWaitForFlexReady = function(script,timeout) {
+      return this.doCommand("waitForFlexReady", [script,timeout], this.handleResults);
   };
-
 } catch (e) { /*must be in selenium RC */ }
