@@ -34,9 +34,9 @@ window.flexpilot = new function() {
 	this.log = function(str){
 		var lvdoc = document.getElementById('logView').contentWindow.document;
 		var li = lvdoc.createElement('li');
-		li.style.color = "red";
-		li.style.fontWeight = "bold";
-		li.innerHTML = "[warn] "+str;
+		//li.style.color = "red";
+		//li.style.fontWeight = "bold";
+		li.innerHTML = "[info] "+str;
 		var log = lvdoc.getElementById('log')
 		log.appendChild(li);
 	}
@@ -81,7 +81,7 @@ window.flexpilot = new function() {
 			var embeds = win.document.getElementsByTagName("embed");
 			var objects = win.document.getElementsByTagName("object");
 			if ((embeds.length == 0) && (objects.length == 0)){
-				this.log("We were unable to find any Flex Applications to record against.");
+				this.log("We were unable to find any recordable Flex/Flash objects.");
 			}	
 		
 			//star the explorers on the page
@@ -134,7 +134,7 @@ window.flexpilot = new function() {
 			var embeds = win.document.getElementsByTagName("embed");
 			var objects = win.document.getElementsByTagName("object");
 			if ((embeds.length == 0) && (objects.length == 0)){
-				this.log("We were unable to find any Flex Applications to explore!");
+				this.log("We were unable to find any explorable Flex/Flash objects!");
 			}	
 		
 			//star the explorers on the page
