@@ -41,7 +41,7 @@ module Selenium
           remote_control_command("flexAssertProperty", [locator, options])    
       end
       
-      def wait_for_flex_ready(locator, timeout):
+      def wait_for_flex_ready(locator, timeout)
           remote_control_command("waitForFlexReady", [locator,timeout])
       end
     end
