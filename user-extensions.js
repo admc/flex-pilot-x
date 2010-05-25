@@ -221,7 +221,7 @@ Selenium.prototype.doFlexAssertProperty = function(locator, options) {
 
 Selenium.prototype.isFlexReady = function(locator) {
   var movie = this.browserbot.findElement(locator);
-  if (typeof(movie.fp_click) != "function"){ 
+  if (typeof(movie.fp_click) == "undefined"){ 
     throw new SeleniumError("Flex movie not ready"); 
   }
   else { return true; }
