@@ -235,6 +235,27 @@ Selenium.prototype.isFlexReady = function(locator) {
   else { return true; }
 };
 
+Selenium.prototype.isFlexNode = function(locator, options) {
+  var strToObj = function(str){
+    var obj = {};
+    try { obj = eval("(" + str + ")") }
+    catch(err) {
+      var optArr = str.split(",")
+      for (var i=0;i<optArr.length;i++){
+        optArr[i] = optArr[i].replace(/^\s+|\s+$/, '');
+        var entryArr = optArr[i].split("=");
+        obj[entryArr[0]] = entryArr[1];
+      }
+    }
+    return obj; 
+  }
+
+  var movie = this.browserbot.findElement(locator);
+  var res = movie.wrappedJSObject['fp_assertDisplayObject'](strToObj(options));
+  if (typeof(res) == "object"){ throw new SeleniumError(res.message); }
+  else { return true; }
+};
+
 // If sauce RC is present we add all the remote commands
 try {
   RemoteSelenium.prototype.doFlexClick = function(locator, flashLoc) {
@@ -277,7 +298,10 @@ try {
     return this.doCommand("flexAssertProperty", [locator, options], this.handleResults);
   };
 
-  RemoteSelenium.prototype.doWaitForFlexReady = function(script,timeout) {
+  RemoteSelenium.prototype.doWaitForFlexReady = function(locator,timeout) {
       return this.doCommand("waitForFlexReady", [script,timeout], this.handleResults);
+  };
+  RemoteSelenium.prototype.doWaitForFlexNode = function(locator,options) {
+      return this.doCommand("waitForFlexReady", [locator,options], this.handleResults);
   };
 } catch (e) { /*must be in selenium RC */ }
