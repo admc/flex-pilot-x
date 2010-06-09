@@ -269,9 +269,6 @@ class selenium:
             raise ValueError, "result is neither 'true' nor 'false': " + boolarr[i]
         return boolarr
     
-    def wait_for_flex_ready(self,locator, timeout):
-        self.do_command("waitForFlexReady", [locator,timeout])
-
     def flex_click(self,locator,flashLoc):
         """
         Clicks the specified display object (flashLoc), within the specified flex/flash movie (locator)
@@ -340,7 +337,13 @@ class selenium:
         Assert a display object 'options:flexlocator' contains the property and value defined by 'options:validator (property|value)'  in the Flex/Flash movie found by locator
         'locator' is an element locator
         """
-        self.do_command("flexAssertProperty", [locator,options])    
+        self.do_command("flexAssertProperty", [locator,options])
+        
+    def wait_for_flex_ready(self,locator,timeout):
+        self.do_command("waitForFlexReady", [locator,timeout])
+
+    def wait_for_flex_object(self,locator,options):
+        self.do_command("waitForFlexObject", [locator,options])    
 
     def click(self,locator):
         """
