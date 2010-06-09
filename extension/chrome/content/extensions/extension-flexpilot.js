@@ -235,7 +235,7 @@ Selenium.prototype.isFlexReady = function(locator) {
   else { return true; }
 };
 
-Selenium.prototype.isFlexNode = function(locator, options) {
+Selenium.prototype.isFlexObject = function(locator, options) {
   var strToObj = function(str){
     var obj = {};
     try { obj = eval("(" + str + ")") }
