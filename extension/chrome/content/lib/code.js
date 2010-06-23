@@ -41,6 +41,18 @@ window.flexpilot = new function() {
         log.appendChild(li);
     }
 
+    //Find a locator for the flash/flex object
+    this.lookupTarget = function (node) {
+        var str = "xpath=?";
+        if (window.editor.flexTarget.id != "") {
+            str = "id="+window.editor.flexTarget.id;
+        }
+        else if (window.editor.flexTarget.name != "") {
+            str = "name="+window.editor.flexTarget.name;
+        }
+        return str;
+    }
+
     this.record = function(){
         //allow the off key-combo from the ide
         window.addEventListener('keydown', function(e) {
@@ -98,8 +110,9 @@ window.flexpilot = new function() {
                     var regExp = /"/g;
                     value = value.replace(regExp,'')
                 }
-                var locator = window.editor.flexTarget.id;
-                window.editor.addCommand(flashMethod, 'id='+locator, value, win);
+
+                var locator = window.flexpilot.lookupTarget(window.editor.flexTarget);
+                window.editor.addCommand(flashMethod, locator, value, win);
                 return true;
             }
 
@@ -174,10 +187,9 @@ window.flexpilot = new function() {
                 var valueInput = document.getElementById('commandValue');
                 valueInput.value = "chain="+obj;
                 triggerEvent(valueInput, 'input', true);
-
                 //Command target
                 var valueTarget = document.getElementById('commandTarget');
-                valueTarget.value = "id="+window.editor.flexTarget.id;
+                valueTarget.value = window.flexpilot.lookupTarget(window.editor.flexTarget);
                 triggerEvent(valueTarget, 'input', true);
                 return true;
             }
