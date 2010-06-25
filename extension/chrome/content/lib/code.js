@@ -101,14 +101,14 @@ window.flexpilot = new function() {
                     obj.params.chain = obj.chain;
                     value = nativeJSON.encode(obj.params);
                     //remove all of the json and make it selenium simple
-                    var regExp = /{/g;
+                    /*var regExp = /{/g;
                     value = value.replace(regExp,'')
                     var regExp = /}/g;
                     value = value.replace(regExp,'')
                     var regExp = /":"/g;
                     value = value.replace(regExp,'=')
                     var regExp = /"/g;
-                    value = value.replace(regExp,'')
+                    value = value.replace(regExp,'')*/
                 }
 
                 var locator = window.flexpilot.lookupTarget(window.editor.flexTarget);

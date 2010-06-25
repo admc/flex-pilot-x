@@ -36,6 +36,96 @@
     <param name="options">flex element locator, coords</param>
     <comment>drag a display object ‘locator’ to a specified x,y</comment>
   </function>
+  <function name="flexSliderChange">
+    <param name="locator">an <a href="#locators">element locator</a></param>
+    <param name="options">flex element locator, [label,val]</param>
+    <comment>change the value of slider</comment>
+  </function>
+  <function name="flexDateChange">
+    <param name="locator">an <a href="#locators">element locator</a></param>
+    <param name="options">flex element locator, [label,val]</param>
+    <comment>change the date in date based component</comment>
+  </function>
+  <function name="flexDgItemEdit">
+    <param name="locator">an <a href="#locators">element locator</a></param>
+    <param name="options">flex element locator, [label,val]</param>
+    <comment>edit an item in a datagrid</comment>
+  </function>
+  <function name="flexDgColumnStretch">
+    <param name="locator">an <a href="#locators">element locator</a></param>
+    <param name="options">flex element locator, [label,val]</param>
+    <comment>stretch a column in datagrid</comment>
+  </function>
+  <function name="flexDgHeaderRelease">
+    <param name="locator">an <a href="#locators">element locator</a></param>
+    <param name="options">flex element locator, [label,val]</param>
+    <comment>Sorting of a column on header release and similar to the usage of command flexDgSort</comment>
+  </function>
+    <function name="flexDgSort">
+    <param name="locator">an <a href="#locators">element locator</a></param>
+    <param name="options">flex element locator, [label,val]</param>
+    <comment>Sort a column in datagrid</comment>
+  </function>
+    <function name="flexDgSortAscending">
+    <param name="locator">an <a href="#locators">element locator</a></param>
+    <param name="options">flex element locator, [label,val]</param>
+    <comment>sort a datagrid column as ascending</comment>
+  </function>
+    <function name="flexDgSortDescending">
+    <param name="locator">an <a href="#locators">element locator</a></param>
+    <param name="options">flex element locator, [label,val]</param>
+    <comment>sort a datagrid column as descending</comment>
+  </function>
+  <function name="flexAdgItemOpen">
+    <param name="locator">an <a href="#locators">element locator</a></param>
+    <param name="options">flex element locator, [label,val]</param>
+    <comment>Open a node to reveal child nodes under it</comment>
+  </function>
+    <function name="flexAdgItemClose">
+    <param name="locator">an <a href="#locators">element locator</a></param>
+    <param name="options">flex element locator, [label,val]</param>
+    <comment>Close a node to hide child nodes under it</comment>
+  </function>
+  <function name="flexAdgColumnStretch">
+    <param name="locator">an <a href="#locators">element locator</a></param>
+    <param name="options">flex element locator, [label,val]</param>
+    <comment>change the width of column in ADG</comment>
+  </function>
+  <function name="flexAdgHeaderRelease">
+    <param name="locator">an <a href="#locators">element locator</a></param>
+    <param name="options">flex element locator, [label,val]</param>
+    <comment>sorting on the release of header</comment>
+  </function>
+    <function name="flexAdgSort">
+    <param name="locator">an <a href="#locators">element locator</a></param>
+    <param name="options">flex element locator, [label,val]</param>
+    <comment>sorting on the release of header</comment>
+  </function>
+   <function name="flexAdgSortAscending">
+    <param name="locator">an <a href="#locators">element locator</a></param>
+    <param name="options">flex element locator, [label,val]</param>
+    <comment>sorting on the release of header</comment>
+  </function>
+    <function name="flexAdgSortDescending">
+    <param name="locator">an <a href="#locators">element locator</a></param>
+    <param name="options">flex element locator, [label,val]</param>
+    <comment>sorting on the release of header</comment>
+  </function>
+  <function name="flexAdgHeaderShift">
+    <param name="locator">an <a href="#locators">element locator</a></param>
+    <param name="options">flex element locator, [label,val]</param>
+    <comment>change the order of columns in ADG</comment>
+  </function>
+  <function name="flexAdgItemEdit">
+    <param name="locator">an <a href="#locators">element locator</a></param>
+    <param name="options">flex element locator, [label,val]</param>
+    <comment>Edit an item in ADG</comment>
+  </function>
+  <function name="flexItemDragDrop">
+    <param name="locator">an <a href="#locators">element locator</a></param>
+    <param name="options">flex element locator, [label,val]</param>
+    <comment>Drag Dtop elements form components to components</comment>
+  </function>
   <function name="flexAssertDisplayObject">
     <param name="locator">an <a href="#locators">element locator</a></param>
     <comment>assert a display object exists, ‘locator’</comment>

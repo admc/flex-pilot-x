@@ -1,4 +1,4 @@
- /*
+  /*
 Copyright 2009-2010, Sauce Labs
 
  Licensed under the Apache License, Version 2.0 (the "License");
@@ -147,6 +147,366 @@ Selenium.prototype.doFlexDragDropToCoords = function(locator, options) {
   if (typeof(res) == "object"){ throw new SeleniumError(res.message); }
 };
 
+Selenium.prototype.doFlexSliderChange = function(locator, options) {
+  var strToObj = function(str){
+    var obj = {};
+    try { obj = eval("(" + str + ")") }
+    catch(err) {
+      var optArr = str.split(",")
+      for (var i=0;i<optArr.length;i++){
+        optArr[i] = optArr[i].replace(/^\s+|\s+$/, '');
+        var entryArr = optArr[i].split("=");
+        obj[entryArr[0]] = entryArr[1];
+      }
+    }
+    return obj; 
+  }
+  
+  var movie = this.browserbot.findElement(locator);
+  var res = movie.wrappedJSObject['fp_sliderChange'](strToObj(options));
+  if (typeof(res) == "object"){ throw new SeleniumError(res.message); }
+};
+
+Selenium.prototype.doFlexDateChange = function(locator, options) {
+  var strToObj = function(str){
+    var obj = {};
+    try { obj = eval("(" + str + ")") }
+    catch(err) {
+      var optArr = str.split(",")
+      for (var i=0;i<optArr.length;i++){
+        optArr[i] = optArr[i].replace(/^\s+|\s+$/, '');
+        var entryArr = optArr[i].split("=");
+        obj[entryArr[0]] = entryArr[1];
+      }
+    }
+    return obj; 
+  }
+  
+  var movie = this.browserbot.findElement(locator);
+  var res = movie.wrappedJSObject['fp_dateChange'](strToObj(options));
+  if (typeof(res) == "object"){ throw new SeleniumError(res.message); }
+};
+
+Selenium.prototype.doFlexDgItemEdit = function(locator, options) {
+  var strToObj = function(str){
+    var obj = {};
+    try { obj = eval("(" + str + ")") }
+    catch(err) {
+      var optArr = str.split(",")
+      for (var i=0;i<optArr.length;i++){
+        optArr[i] = optArr[i].replace(/^\s+|\s+$/, '');
+        var entryArr = optArr[i].split("=");
+        obj[entryArr[0]] = entryArr[1];
+      }
+    }
+    return obj; 
+  }
+  
+  var movie = this.browserbot.findElement(locator);
+  var res = movie.wrappedJSObject['fp_dgItemEdit'](strToObj(options));
+  if (typeof(res) == "object"){ throw new SeleniumError(res.message); }
+};
+
+Selenium.prototype.doFlexDgColumnStretch = function(locator, options) {
+  var strToObj = function(str){
+    var obj = {};
+    try { obj = eval("(" + str + ")") }
+    catch(err) {
+      var optArr = str.split(",")
+      for (var i=0;i<optArr.length;i++){
+        optArr[i] = optArr[i].replace(/^\s+|\s+$/, '');
+        var entryArr = optArr[i].split("=");
+        obj[entryArr[0]] = entryArr[1];
+      }
+    }
+    return obj; 
+  }
+  
+  var movie = this.browserbot.findElement(locator);
+  var res = movie.wrappedJSObject['fp_dgColumnStretch'](strToObj(options));
+  if (typeof(res) == "object"){ throw new SeleniumError(res.message); }
+};
+
+Selenium.prototype.doFlexDgHeaderRelease = function(locator, options) {
+  var strToObj = function(str){
+    var obj = {};
+    try { obj = eval("(" + str + ")") }
+    catch(err) {
+      var optArr = str.split(",")
+      for (var i=0;i<optArr.length;i++){
+        optArr[i] = optArr[i].replace(/^\s+|\s+$/, '');
+        var entryArr = optArr[i].split("=");
+        obj[entryArr[0]] = entryArr[1];
+      }
+    }
+    return obj; 
+  }
+  
+  var movie = this.browserbot.findElement(locator);
+  var res = movie.wrappedJSObject['fp_dgHeaderRelease'](strToObj(options));
+  if (typeof(res) == "object"){ throw new SeleniumError(res.message); }
+};
+
+Selenium.prototype.doFlexDgSort = function(locator, options) {
+  var strToObj = function(str){
+    var obj = {};
+    try { obj = eval("(" + str + ")") }
+    catch(err) {
+      var optArr = str.split(",")
+      for (var i=0;i<optArr.length;i++){
+        optArr[i] = optArr[i].replace(/^\s+|\s+$/, '');
+        var entryArr = optArr[i].split("=");
+        obj[entryArr[0]] = entryArr[1];
+      }
+    }
+    return obj; 
+  }
+  
+  var movie = this.browserbot.findElement(locator);
+  var res = movie.wrappedJSObject['fp_dgSort'](strToObj(options));
+  if (typeof(res) == "object"){ throw new SeleniumError(res.message); }
+};
+
+Selenium.prototype.doFlexDgSortAscending = function(locator, options) {
+  var strToObj = function(str){
+    var obj = {};
+    try { obj = eval("(" + str + ")") }
+    catch(err) {
+      var optArr = str.split(",")
+      for (var i=0;i<optArr.length;i++){
+        optArr[i] = optArr[i].replace(/^\s+|\s+$/, '');
+        var entryArr = optArr[i].split("=");
+        obj[entryArr[0]] = entryArr[1];
+      }
+    }
+    return obj; 
+  }
+  
+  var movie = this.browserbot.findElement(locator);
+  var res = movie.wrappedJSObject['fp_dgSortAscending'](strToObj(options));
+  if (typeof(res) == "object"){ throw new SeleniumError(res.message); }
+};
+
+Selenium.prototype.doFlexDgSortDescending = function(locator, options) {
+  var strToObj = function(str){
+    var obj = {};
+    try { obj = eval("(" + str + ")") }
+    catch(err) {
+      var optArr = str.split(",")
+      for (var i=0;i<optArr.length;i++){
+        optArr[i] = optArr[i].replace(/^\s+|\s+$/, '');
+        var entryArr = optArr[i].split("=");
+        obj[entryArr[0]] = entryArr[1];
+      }
+    }
+    return obj; 
+  }
+  
+  var movie = this.browserbot.findElement(locator);
+  var res = movie.wrappedJSObject['fp_dgSortDescending'](strToObj(options));
+  if (typeof(res) == "object"){ throw new SeleniumError(res.message); }
+};
+
+Selenium.prototype.doFlexAdgItemOpen = function(locator, options) {
+  var strToObj = function(str){
+    var obj = {};
+    try { obj = eval("(" + str + ")") }
+    catch(err) {
+      var optArr = str.split(",")
+      for (var i=0;i<optArr.length;i++){
+        optArr[i] = optArr[i].replace(/^\s+|\s+$/, '');
+        var entryArr = optArr[i].split("=");
+        obj[entryArr[0]] = entryArr[1];
+      }
+    }
+    return obj; 
+  }
+  
+  var movie = this.browserbot.findElement(locator);
+  var res = movie.wrappedJSObject['fp_adgItemOpen'](strToObj(options));
+  if (typeof(res) == "object"){ throw new SeleniumError(res.message); }
+};
+
+Selenium.prototype.doFlexAdgItemClose = function(locator, options) {
+  var strToObj = function(str){
+    var obj = {};
+    try { obj = eval("(" + str + ")") }
+    catch(err) {
+      var optArr = str.split(",")
+      for (var i=0;i<optArr.length;i++){
+        optArr[i] = optArr[i].replace(/^\s+|\s+$/, '');
+        var entryArr = optArr[i].split("=");
+        obj[entryArr[0]] = entryArr[1];
+      }
+    }
+    return obj; 
+  }
+  
+  var movie = this.browserbot.findElement(locator);
+  var res = movie.wrappedJSObject['fp_adgItemClose'](strToObj(options));
+  if (typeof(res) == "object"){ throw new SeleniumError(res.message); }
+};
+
+Selenium.prototype.doFlexAdgColumnStretch = function(locator, options) {
+  var strToObj = function(str){
+    var obj = {};
+    try { obj = eval("(" + str + ")") }
+    catch(err) {
+      var optArr = str.split(",")
+      for (var i=0;i<optArr.length;i++){
+        optArr[i] = optArr[i].replace(/^\s+|\s+$/, '');
+        var entryArr = optArr[i].split("=");
+        obj[entryArr[0]] = entryArr[1];
+      }
+    }
+    return obj; 
+  }
+  
+  var movie = this.browserbot.findElement(locator);
+  var res = movie.wrappedJSObject['fp_adgColumnStretch'](strToObj(options));
+  if (typeof(res) == "object"){ throw new SeleniumError(res.message); }
+};
+
+Selenium.prototype.doFlexAdgHeaderRelease = function(locator, options) {
+  var strToObj = function(str){
+    var obj = {};
+    try { obj = eval("(" + str + ")") }
+    catch(err) {
+      var optArr = str.split(",")
+      for (var i=0;i<optArr.length;i++){
+        optArr[i] = optArr[i].replace(/^\s+|\s+$/, '');
+        var entryArr = optArr[i].split("=");
+        obj[entryArr[0]] = entryArr[1];
+      }
+    }
+    return obj; 
+  }
+  
+  var movie = this.browserbot.findElement(locator);
+  var res = movie.wrappedJSObject['fp_adgHeaderRelease'](strToObj(options));
+  if (typeof(res) == "object"){ throw new SeleniumError(res.message); }
+};
+
+Selenium.prototype.doFlexAdgSort = function(locator, options) {
+  var strToObj = function(str){
+    var obj = {};
+    try { obj = eval("(" + str + ")") }
+    catch(err) {
+      var optArr = str.split(",")
+      for (var i=0;i<optArr.length;i++){
+        optArr[i] = optArr[i].replace(/^\s+|\s+$/, '');
+        var entryArr = optArr[i].split("=");
+        obj[entryArr[0]] = entryArr[1];
+      }
+    }
+    return obj; 
+  }
+  
+  var movie = this.browserbot.findElement(locator);
+  var res = movie.wrappedJSObject['fp_adgSort'](strToObj(options));
+  if (typeof(res) == "object"){ throw new SeleniumError(res.message); }
+};
+
+Selenium.prototype.doFlexAdgSortAscending = function(locator, options) {
+  var strToObj = function(str){
+    var obj = {};
+    try { obj = eval("(" + str + ")") }
+    catch(err) {
+      var optArr = str.split(",")
+      for (var i=0;i<optArr.length;i++){
+        optArr[i] = optArr[i].replace(/^\s+|\s+$/, '');
+        var entryArr = optArr[i].split("=");
+        obj[entryArr[0]] = entryArr[1];
+      }
+    }
+    return obj; 
+  }
+  
+  var movie = this.browserbot.findElement(locator);
+  var res = movie.wrappedJSObject['fp_adgSortAscending'](strToObj(options));
+  if (typeof(res) == "object"){ throw new SeleniumError(res.message); }
+};
+
+Selenium.prototype.doFlexAdgSortDescending = function(locator, options) {
+  var strToObj = function(str){
+    var obj = {};
+    try { obj = eval("(" + str + ")") }
+    catch(err) {
+      var optArr = str.split(",")
+      for (var i=0;i<optArr.length;i++){
+        optArr[i] = optArr[i].replace(/^\s+|\s+$/, '');
+        var entryArr = optArr[i].split("=");
+        obj[entryArr[0]] = entryArr[1];
+      }
+    }
+    return obj; 
+  }
+  
+  var movie = this.browserbot.findElement(locator);
+  var res = movie.wrappedJSObject['fp_adgSortDescending'](strToObj(options));
+  if (typeof(res) == "object"){ throw new SeleniumError(res.message); }
+};
+
+Selenium.prototype.doFlexAdgHeaderShift = function(locator, options) {
+  var strToObj = function(str){
+    var obj = {};
+    try { obj = eval("(" + str + ")") }
+    catch(err) {
+      var optArr = str.split(",")
+      for (var i=0;i<optArr.length;i++){
+        optArr[i] = optArr[i].replace(/^\s+|\s+$/, '');
+        var entryArr = optArr[i].split("=");
+        obj[entryArr[0]] = entryArr[1];
+      }
+    }
+    return obj; 
+  }
+  
+  var movie = this.browserbot.findElement(locator);
+  var res = movie.wrappedJSObject['fp_adgHeaderShift'](strToObj(options));
+  if (typeof(res) == "object"){ throw new SeleniumError(res.message); }
+};
+
+Selenium.prototype.doFlexAdgItemEdit = function(locator, options) {
+  var strToObj = function(str){
+    var obj = {};
+    try { obj = eval("(" + str + ")") }
+    catch(err) {
+      var optArr = str.split(",")
+      for (var i=0;i<optArr.length;i++){
+        optArr[i] = optArr[i].replace(/^\s+|\s+$/, '');
+        var entryArr = optArr[i].split("=");
+        obj[entryArr[0]] = entryArr[1];
+      }
+    }
+    return obj; 
+  }
+  
+  var movie = this.browserbot.findElement(locator);
+  var res = movie.wrappedJSObject['fp_adgItemEdit'](strToObj(options));
+  if (typeof(res) == "object"){ throw new SeleniumError(res.message); }
+};
+
+Selenium.prototype.doFlexItemDragDrop = function(locator, options) {
+  var strToObj = function(str){
+    var obj = {};
+    try { obj = eval("(" + str + ")") }
+    catch(err) {
+      var optArr = str.split(",")
+      for (var i=0;i<optArr.length;i++){
+        optArr[i] = optArr[i].replace(/^\s+|\s+$/, '');
+        var entryArr = optArr[i].split("=");
+        obj[entryArr[0]] = entryArr[1];
+      }
+    }
+    return obj; 
+  }
+  
+  var movie = this.browserbot.findElement(locator);
+  var res = movie.wrappedJSObject['fp_dragDrop'](strToObj(options));
+  if (typeof(res) == "object"){ throw new SeleniumError(res.message); }
+};
+
 Selenium.prototype.doFlexAssertDisplayObject = function(locator, options) {
   var strToObj = function(str){
     var obj = {};
@@ -186,6 +546,8 @@ Selenium.prototype.doFlexAssertTextIn = function(locator, options) {
   var res = movie.wrappedJSObject['fp_assertTextIn'](strToObj(options));
   if (typeof(res) == "object"){ throw new SeleniumError(res.message); }
 };
+
+
 
 Selenium.prototype.doFlexAssertText = function(locator, options) {
   var strToObj = function(str){
@@ -282,6 +644,30 @@ try {
     return this.doCommand("flexDragDropToCoords", [locator, options], this.handleResults);
   };
 
+  RemoteSelenium.prototype.doFlexSliderChange = function(locator, options) {
+    return this.doCommand("flexSliderChange", [locator, options], this.handleResults);
+  };
+  
+  RemoteSelenium.prototype.doFlexDateChange = function(locator, options) {
+    return this.doCommand("flexDateChange", [locator, options], this.handleResults);
+  };
+  
+  RemoteSelenium.prototype.doFlexDgItemEdit = function(locator, options) {
+    return this.doCommand("flexDgItemEdit", [locator, options], this.handleResults);
+  };
+  
+  RemoteSelenium.prototype.doFlexDgSort = function(locator, options) {
+    return this.doCommand("flexDgItemEdit", [locator, options], this.handleResults);
+  };
+  
+  RemoteSelenium.prototype.doFlexDgSortAscending = function(locator, options) {
+    return this.doCommand("flexDgItemEdit", [locator, options], this.handleResults);
+  };
+  
+  RemoteSelenium.prototype.doFlexDgSortDescending = function(locator, options) {
+    return this.doCommand("flexDgItemEdit", [locator, options], this.handleResults);
+  };
+  
   RemoteSelenium.prototype.doFlexAssertDisplayObject = function(locator, options) {
     return this.doCommand("flexAssertDisplayObject", [locator, options], this.handleResults);
   };
