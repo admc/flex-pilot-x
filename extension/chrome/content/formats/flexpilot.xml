@@ -6,6 +6,11 @@
     <param name="timeout">number of milliseconds to wait before timeout</param>
     <comment>wait for flex framework ready</comment>
   </function>
+  <function name="waitForFlexObject">
+    <param name="locator">an <a href="#locators">element locator</a></param>
+    <param name="options">flex locator for display object</param>
+    <comment>wait for a flex element to be ready</comment>
+  </function>
   <function name="flexClick">
     <param name="locator">an <a href="#locators">element locator</a></param>
     <param name="flashLoc">element locator</param>
