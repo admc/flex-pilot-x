@@ -43,6 +43,7 @@
   </function>
   <function name="flexAssertDisplayObject">
     <param name="locator">an <a href="#locators">element locator</a></param>
+    <param name="options">flex element locator</param>
     <comment>assert a display object exists, ‘locator’</comment>
   </function>
   <function name="flexAssertTextIn">
