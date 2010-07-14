@@ -289,7 +289,7 @@ module Selenium
         end
         
         def flex_assert_text_in(locator,options):
-            remote_control_command("flexAssertText", [locator,options])
+            remote_control_command("flexAssertTextIn", [locator,options])
         end
         
         def flex_assert_property(locator,options):

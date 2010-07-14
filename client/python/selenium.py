@@ -330,7 +330,7 @@ class selenium:
         Assert a display object 'options:flexlocator' contains the string 'options:validator'  in the Flex/Flash movie found by locator
         'locator' is an element locator
         """
-        self.do_command("flexAssertText", [locator,options])
+        self.do_command("flexAssertTextIn", [locator,options])
 
     def flex_assert_property(self,locator,options):
         """
