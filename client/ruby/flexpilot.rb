@@ -46,7 +46,7 @@ module Selenium
       end
       
       def wait_for_flex_object(locator, options)
-          remote_control_command("waitForFlexReady", [locator,options])
+          remote_control_command("waitForFlexObject", [locator,options])
       end
     end
   end
