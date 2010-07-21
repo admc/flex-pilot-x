@@ -17,6 +17,7 @@ Copyright 2009-2010, Sauce Labs
  limitations under the License.
 */
 
+//give us an object from the string
 Selenium.prototype.strToObj = function(str) {
   var obj = {};
   try { obj = eval("(" + str + ")") }
@@ -28,26 +29,29 @@ Selenium.prototype.strToObj = function(str) {
       obj[entryArr[0]] = entryArr[1];
     }
   }
-  return obj;
+  return obj; 
 }
 
-//hack around firefox 3.10+ to execute code against a flash movie
+//call flash/flex in a way that works for all browsers/versions
 Selenium.prototype.callMovie = function(movie, func, params) {
   try {
+    //Not IE
     if (typeof JSON != "undefined") {
       var res = movie[func](JSON.stringify(this.strToObj(params)));
     }
+    //IE
     else {
       var res = movie[func](this.strToObj(params));
     }
     return res;
   }
+  //Firefox 3.10 and up
   catch (e) {
     params = JSON.stringify(this.strToObj(params));
     var bridge = selenium.browserbot.getCurrentWindow().document.createElement( 'input');
     bridge.setAttribute( 'id', 'ws-sel-bridge');
     bridge.setAttribute( 'value', 'test');
-    selenium.browserbot.getCurrentWindow().document.body.appendChild( bridge);
+    selenium.browserbot.getCurrentWindow().document.body.appendChild(bridge);
 
     var id = null;
     if (movie.id != "") {
@@ -71,86 +75,69 @@ Selenium.prototype.callMovie = function(movie, func, params) {
   }
 }
 
-Selenium.prototype.doFlexClick = function(locator, flashLoc) {
+//get the movie, run the action, throw if it failed
+Selenium.prototype.flex = function(method, locator, options){
   var movie = this.browserbot.findElement(locator);
-  var res = this.callMovie(movie, "fp_click", flashLoc);
+  var res = this.callMovie(movie, method, options);
   if (typeof(res) == "object"){ throw new SeleniumError(res.message); }
+}
+
+Selenium.prototype.doFlexClick = function(locator, flashLoc) {
+  this.flex("fp_click", locator, flashLoc);
 };
 
 Selenium.prototype.doFlexDoubleClick = function(locator, flashLoc) {
-  var movie = this.browserbot.findElement(locator);
-  var res = this.callMovie(movie, "fp_doubleClick", flashLoc);
-  if (typeof(res) == "object"){ throw new SeleniumError(res.message); }
+  this.flex("fp_doubleClick", locator, flashLoc);
 };
 
-//x.doFlashType("id=devMovie","chain=name:testTextArea/name:UITextField18", "SUP MANGO")
-// For IDE had to change syntax to be two params:
-// target = id=devMovie
-// value = {flash:"chain=name:testTextArea/name:UITextField18", text:"ROCK"}
 Selenium.prototype.doFlexType = function(locator, options) {
-  var movie = this.browserbot.findElement(locator);
-  var res = this.callMovie(movie, "fp_type", options);
-  if (typeof(res) == "object"){ throw new SeleniumError(res.message); }
+  this.flex("fp_type", locator, options);
 };
 
 //x.doFlashSelect("id=devMovie", "chain=id:subPanel/name:comboTest", "label=Alex")
 //{option:"label=Alex","flash":"chain=id:subPanel/name:comboTest"}
 Selenium.prototype.doFlexSelect = function(locator, options) {
-  var movie = this.browserbot.findElement(locator);
-  var res = this.callMovie(movie, "fp_select", options);
-  if (typeof(res) == "object"){ throw new SeleniumError(res.message); }
+  this.flex("fp_select", locator, options);
 };
 
 //x.doFlashDragDropElemToElem("id=devMovie", "chain=name:dragSprite", "optchain=id:subPanel")
 //{chain:"name:dragSprite", optchain:"name:testTextArea"}
 Selenium.prototype.doFlexDragDropElemToElem = function(locator, options) {
-  var movie = this.browserbot.findElement(locator);
-  var res = this.callMovie(movie, "fp_dragDropElemToElem", options);
-  if (typeof(res) == "object"){ throw new SeleniumError(res.message); }
+  this.flex("fp_dragDropElemToElem", locator, options);
 };
 
 //x.doFlashDragDropElemToElem("id=devMovie", "chain=name:dragSprite", "optchain=id:subPanel")
 Selenium.prototype.doFlexDragDropToCoords = function(locator, options) {
-  var movie = this.browserbot.findElement(locator);
-  var res = this.callMovie(movie, "fp_dragDropToCoords", options);
-  if (typeof(res) == "object"){ throw new SeleniumError(res.message); }
+  this.flex("fp_dragDropToCoords", locator, options);
 };
 
 Selenium.prototype.doFlexAssertDisplayObject = function(locator, options) {
-  var movie = this.browserbot.findElement(locator);
-  var res = this.callMovie(movie, "fp_assertDisplayObject", options);
-  if (typeof(res) == "object"){ throw new SeleniumError(res.message); }
+  this.flex("fp_assertDisplayObject", locator, options);
 };
 
 Selenium.prototype.doFlexAssertTextIn = function(locator, options) {
-  var movie = this.browserbot.findElement(locator);
-  var res = this.callMovie(movie, "fp_assertTextIn", options);
-  if (typeof(res) == "object"){ throw new SeleniumError(res.message); }
+  this.flex("fp_assertTextIn", locator, options);
 };
 
 Selenium.prototype.doFlexAssertText = function(locator, options) {
-  var movie = this.browserbot.findElement(locator);
-  var res = this.callMovie(movie, "fp_assertText", options);
-  if (typeof(res) == "object"){ throw new SeleniumError(res.message); }
+  this.flex("fp_assertText", locator, options);
 };
 
 Selenium.prototype.doFlexAssertProperty = function(locator, options) {
-  var movie = this.browserbot.findElement(locator);
-  var res = this.callMovie(movie, "fp_assertProperty", options);
-  if (typeof(res) == "object"){ throw new SeleniumError(res.message); }
+  this.flex("fp_assertProperty", locator, options);
 };
 
 Selenium.prototype.isFlexReady = function(locator) {
   var movie = this.browserbot.findElement(locator);
-  if (typeof(movie.fp_click) == "undefined"){
-    throw new SeleniumError("Flex movie not ready");
+  if (typeof(movie.fp_click) == "undefined"){ 
+    throw new SeleniumError("Flex movie not ready"); 
   }
   else { return true; }
 };
 
 Selenium.prototype.isFlexObject = function(locator, options) {
   var movie = this.browserbot.findElement(locator);
-  var res = this.callMovie(movie, "fp_assertDisplayObject", options);
+  var res = this.callMovie(movie, "fp_assertDisplayObject", options);  
   if (typeof(res) == "object"){ throw new SeleniumError(res.message); }
   else { return true; }
 };
