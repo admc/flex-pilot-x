@@ -1,4 +1,4 @@
-/*
+ /*
 Copyright 2009-2010, Sauce Labs
 
  Licensed under the Apache License, Version 2.0 (the "License");
@@ -22,11 +22,16 @@ Selenium.prototype.strToObj = function(str) {
   var obj = {};
   try { obj = eval("(" + str + ")") }
   catch(err) {
-    var optArr = str.split(",")
-    for (var i=0;i<optArr.length;i++) {
-      optArr[i] = optArr[i].replace(/^\s+|\s+$/, '');
-      var entryArr = optArr[i].split("=");
-      obj[entryArr[0]] = entryArr[1];
+    try {
+      var optArr = str.split(",")
+      for (var i=0;i<optArr.length;i++) {
+        optArr[i] = optArr[i].replace(/^\s+|\s+$/, '');
+        var entryArr = optArr[i].split("=");
+        obj[entryArr[0]] = entryArr[1];
+      } 
+    }
+    catch (e) { //if we have an empty obj etc  
+        return obj;
     }
   }
   return obj; 
@@ -34,6 +39,9 @@ Selenium.prototype.strToObj = function(str) {
 
 //call flash/flex in a way that works for all browsers/versions
 Selenium.prototype.callMovie = function(movie, func, params) {
+  if (movie.wrappedJSObject) {
+    movie = movie.wrappedJSObject;
+  }
   try {
     //Not IE
     if (typeof JSON != "undefined") {
@@ -48,10 +56,15 @@ Selenium.prototype.callMovie = function(movie, func, params) {
   //Firefox 3.10 and up
   catch (e) {
     params = JSON.stringify(this.strToObj(params));
-    var bridge = selenium.browserbot.getCurrentWindow().document.createElement( 'input');
-    bridge.setAttribute( 'id', 'ws-sel-bridge');
+    var bridge = null;
+    bridge = selenium.browserbot.getCurrentWindow().document.getElementById("ws-sel-bridge");
+    if (!bridge) {
+      bridge = selenium.browserbot.getCurrentWindow().document.createElement( 'input');
+      bridge.setAttribute( 'id', 'ws-sel-bridge');
+      bridge.setAttribute( 'value', 'test');
+      selenium.browserbot.getCurrentWindow().document.body.appendChild(bridge);
+    }
     bridge.setAttribute( 'value', 'test');
-    selenium.browserbot.getCurrentWindow().document.body.appendChild(bridge);
 
     var id = null;
     if (movie.id != "") {
@@ -66,6 +79,7 @@ Selenium.prototype.callMovie = function(movie, func, params) {
     var e = selenium.browserbot.getCurrentWindow().document.createEvent( 'HTMLEvents');
     e.initEvent( 'click', false, false);
     bridge.dispatchEvent(e);
+    window.bridge = bridge.value;
     if (bridge.value.indexOf('object') != -1){
       var res = {};
       res.message = func + ' with params ' + params + ' failed.';
@@ -129,6 +143,9 @@ Selenium.prototype.doFlexAssertProperty = function(locator, options) {
 
 Selenium.prototype.isFlexReady = function(locator) {
   var movie = this.browserbot.findElement(locator);
+  if (movie.wrappedJSObject) {
+     movie = movie.wrappedJSObject;
+  }
   if (typeof(movie.fp_click) == "undefined"){ 
     throw new SeleniumError("Flex movie not ready"); 
   }
@@ -141,3 +158,54 @@ Selenium.prototype.isFlexObject = function(locator, options) {
   if (typeof(res) == "object"){ throw new SeleniumError(res.message); }
   else { return true; }
 };
+
+
+// If sauce RC is present we add all the remote commands
+try {
+  RemoteSelenium.prototype.doFlexClick = function(locator, flashLoc) {
+     return this.doCommand("flexClick", [locator, flashLoc], this.handleResults);
+  };
+
+  RemoteSelenium.prototype.doFlexDoubleClick = function(locator, flashLoc) {
+    return this.doCommand("flexDoubleClick", [locator, flashLoc], this.handleResults);
+  };
+
+  RemoteSelenium.prototype.doFlexType = function(locator, options) {
+    return this.doCommand("flexType", [locator, options], this.handleResults);
+  };
+
+  RemoteSelenium.prototype.doFlexSelect = function(locator, options) {
+    return this.doCommand("flexSelect", [locator, options], this.handleResults);
+  };
+
+  RemoteSelenium.prototype.doFlexDragDropElemToElem = function(locator, options) {
+    return this.doCommand("flexDragDropElemToElem", [locator, options], this.handleResults);
+  };
+
+  RemoteSelenium.prototype.doFlexDragDropToCoords = function(locator, options) {
+    return this.doCommand("flexDragDropToCoords", [locator, options], this.handleResults);
+  };
+
+  RemoteSelenium.prototype.doFlexAssertDisplayObject = function(locator, options) {
+    return this.doCommand("flexAssertDisplayObject", [locator, options], this.handleResults);
+  };
+
+  RemoteSelenium.prototype.doFlexAssertTextIn = function(locator, options) {
+    return this.doCommand("flexAssertTextIn", [locator, options], this.handleResults);
+  };
+
+  RemoteSelenium.prototype.doFlexAssertText = function(locator, options) {
+    return this.doCommand("flexAssertText", [locator, options], this.handleResults);
+  };
+
+  RemoteSelenium.prototype.doFlexAssertProperty = function(locator, options) {
+    return this.doCommand("flexAssertProperty", [locator, options], this.handleResults);
+  };
+
+  RemoteSelenium.prototype.doWaitForFlexReady = function(locator,timeout) {
+      return this.doCommand("waitForFlexReady", [locator,timeout], this.handleResults);
+  };
+  RemoteSelenium.prototype.doWaitForFlexObject = function(locator,options) {
+      return this.doCommand("waitForFlexObject", [locator,options], this.handleResults);
+  };
+} catch (e) { /*must be in selenium RC */ }
