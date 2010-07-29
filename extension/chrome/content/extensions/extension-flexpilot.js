@@ -154,6 +154,9 @@ Selenium.prototype.isFlexReady = function(locator) {
 
 Selenium.prototype.isFlexObject = function(locator, options) {
   var movie = this.browserbot.findElement(locator);
+  if (movie.wrappedJSObject) {
+     movie = movie.wrappedJSObject;
+  }
   var res = this.callMovie(movie, "fp_assertDisplayObject", options);  
   if (typeof(res) == "object"){ throw new SeleniumError(res.message); }
   else { return true; }
