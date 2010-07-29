@@ -79,8 +79,8 @@ Selenium.prototype.callMovie = function(movie, func, params) {
     var e = selenium.browserbot.getCurrentWindow().document.createEvent( 'HTMLEvents');
     e.initEvent( 'click', false, false);
     bridge.dispatchEvent(e);
-    window.bridge = bridge.value;
-    if (bridge.value.indexOf('object') != -1){
+
+    if (bridge.value.indexOf('object') != -1) {
       var res = {};
       res.message = func + ' with params ' + params + ' failed.';
       return res;
@@ -90,10 +90,10 @@ Selenium.prototype.callMovie = function(movie, func, params) {
 }
 
 //get the movie, run the action, throw if it failed
-Selenium.prototype.flex = function(method, locator, options){
+Selenium.prototype.flex = function(method, locator, options) {
   var movie = this.browserbot.findElement(locator);
   var res = this.callMovie(movie, method, options);
-  if (typeof(res) == "object"){ throw new SeleniumError(res.message); }
+  if (typeof(res) == "object") { throw new SeleniumError(res.message); }
 }
 
 Selenium.prototype.doFlexClick = function(locator, flashLoc) {
@@ -146,7 +146,7 @@ Selenium.prototype.isFlexReady = function(locator) {
   if (movie.wrappedJSObject) {
      movie = movie.wrappedJSObject;
   }
-  if (typeof(movie.fp_click) == "undefined"){ 
+  if (typeof(movie.fp_click) == "undefined") { 
     throw new SeleniumError("Flex movie not ready"); 
   }
   else { return true; }
@@ -158,7 +158,7 @@ Selenium.prototype.isFlexObject = function(locator, options) {
      movie = movie.wrappedJSObject;
   }
   var res = this.callMovie(movie, "fp_assertDisplayObject", options);  
-  if (typeof(res) == "object"){ throw new SeleniumError(res.message); }
+  if (typeof(res) == "object") { throw new SeleniumError(res.message); }
   else { return true; }
 };
 
