@@ -144,15 +144,21 @@ window.flexpilot = new function() {
                     //obj.params.flash = 'chain='+obj.chain;
                     obj.params.chain = obj.chain;
                     value = nativeJSON.encode(obj.params);
+                    
                     //remove all of the json and make it selenium simple
-                    var regExp = /{/g;
-                    value = value.replace(regExp,'')
-                    var regExp = /}/g;
-                    value = value.replace(regExp,'')
-                    var regExp = /":"/g;
-                    value = value.replace(regExp,'=')
-                    var regExp = /"/g;
-                    value = value.replace(regExp,'')
+                    //but only if there is not more than one level of obj depth
+                    if ((value.split("{").length - 1) == 1){
+                      var regExp = /{/g;
+                      value = value.replace(regExp,'');
+                      var regExp = /}/g;
+                      value = value.replace(regExp,'');
+                      var regExp = /":/g;
+                      value = value.replace(regExp,'=');
+                      var regExp = /="/g;
+                      value = value.replace(regExp,'=');
+                      var regExp = /"/g;
+                      value = value.replace(regExp,'');
+                    }
                 }
 
                 var locator = window.flexpilot.lookupTarget(window.editor.flexTarget);

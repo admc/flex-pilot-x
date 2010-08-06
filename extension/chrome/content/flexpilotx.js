@@ -19,7 +19,7 @@ Copyright 2009-2010, Sauce Labs
 
 const PREFLIGHT_ID = "flexpilotx@getwindmill.com";
 
-/*function initializePreflightObserver() {
+/*function initializePreflightObserver(){
     flexpilotxObserver.register();
 }
 
