@@ -62,16 +62,17 @@ Selenium.prototype.callMovie = function(movie, func, params) {
       bridge = selenium.browserbot.getCurrentWindow().document.createElement( 'input');
       bridge.setAttribute( 'id', 'ws-sel-bridge');
       bridge.setAttribute( 'value', 'test');
+      bridge.setAttribute('style', 'display: none')
       selenium.browserbot.getCurrentWindow().document.body.appendChild(bridge);
     }
     bridge.setAttribute( 'value', 'test');
 
     var id = null;
-    if (movie.id != "") {
+    if (movie.id) {
       id = movie.id;
       bridge.setAttribute( 'onClick','window.document.getElementById("ws-sel-bridge").value = window.document.getElementById("' + id + '")["' + func + '"](\''+params+'\');');
     }
-    if (movie.name != undefined) {
+    else if (movie.name) {
       id = movie.name;
       bridge.setAttribute( 'onClick','window.document.getElementById("ws-sel-bridge").value = window.document.getElementsByName("' + id + '")[0]["' + func + '"](\''+params+'\');');
     }
