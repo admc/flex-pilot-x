@@ -168,10 +168,13 @@ public class DefaultSelenium implements Selenium {
        commandProcessor.doCommand("click", new String[] {locator,});
     }
 
-    public void waitForFlexReady(String locator,String options) {
+    public void waitForFlexReady(String locator,String timeout) {
+       commandProcessor.doCommand("waitForFlexReady", new String[] {locator,timeout});
+    }
+    
+    public void waitForFlexObject(String locator,String options) {
        commandProcessor.doCommand("waitForFlexObject", new String[] {locator,options});
     }
-
     public void flexClick(String locator,String flashLoc) {
        commandProcessor.doCommand("flexClick", new String[] {locator,flashLoc});
     }
