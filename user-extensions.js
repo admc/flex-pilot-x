@@ -343,9 +343,10 @@ try {
   };
 
   RemoteSelenium.prototype.doWaitForFlexReady = function(locator,timeout) {
-      return this.doCommand("waitForFlexReady", [script,timeout], this.handleResults);
+      return this.doCommand("waitForFlexReady", [script, timeout], this.handleResults);
   };
-  RemoteSelenium.prototype.doWaitForFlexNode = function(locator,options) {
-      return this.doCommand("waitForFlexReady", [locator,options], this.handleResults);
+  
+  RemoteSelenium.prototype.doWaitForFlexObject = function(locator,options) {
+      return this.doCommand("waitForFlexObject", [locator, options], this.handleResults);
   };
 } catch (e) { /*must be in selenium RC */ }
