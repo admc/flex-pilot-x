@@ -298,7 +298,7 @@ window.flexpilot = new function() {
       }
       for (var i=0;i<objects.length;i++) {
         try {
-          this.callMovie(win, embeds[i], 'fp_explorerStart');
+          this.callMovie(win, objects[i], 'fp_explorerStart');
           objects[i].removeEventListener('mouseover', function(e) { editor.flexTarget = e.target.wrappedJSObject;}, false);
           objects[i].addEventListener('mouseover', function(e) { editor.flexTarget = e.target.wrappedJSObject;}, false);
         } catch(err) {
@@ -410,9 +410,7 @@ while(enumerator.hasMoreElements()) {
 //so that if it navigates to a flex page the recorder is enabled
 var observer = {
   observe: function(subject,topic,data) {
-    subject.addEventListener("DOMContentLoaded", function(event) {
-      Components.utils.reportError('DOMContentLoaded');
-      
+    subject.addEventListener("DOMContentLoaded", function(event) {      
       try {
         subject.content.addEventListener("load", function(event) {
           if (event.originalTarget instanceof HTMLDocument) {
@@ -430,7 +428,7 @@ var observer = {
             flexpilot.off();
           }
         }, false);
-      } catch(err) {  Components.utils.reportError(err); }
+      } catch(err) {}
     
     }, false);
   }
