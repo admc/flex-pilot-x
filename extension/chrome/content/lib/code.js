@@ -180,7 +180,8 @@ window.flexpilot = new function() {
 
         var locator = window.flexpilot.lookupTarget(window.editor.flexTarget);
         window.editor.addCommand(flashMethod, locator, value, win);
-      }
+        return true;
+      };
 
       //get all movies on page
       var embeds = win.document.getElementsByTagName("embed");
