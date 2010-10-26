@@ -196,9 +196,9 @@ window.flexpilot = new function() {
         //After they have been activated, no need to do it again
         if (!embeds[i].activated) {
           try {
-            this.log("Trying to activate flex movie: " + this.lookupTarget(embeds[i]));
+            this.log("Trying to activate flex movie recording: " + this.lookupTarget(embeds[i]));
             this.callMovie(win, embeds[i], 'fp_recorderStart');
-            this.log("Succesfully activated flex movie: " + this.lookupTarget(embeds[i]));
+            this.log("Succesfully activated flex movie recording: " + this.lookupTarget(embeds[i]));
             embeds[i].removeEventListener('mouseover', function(e) { editor.flexTarget = e.target.wrappedJSObject;}, false);
             embeds[i].addEventListener('mouseover', function(e) { editor.flexTarget = e.target.wrappedJSObject;}, false);
             embeds[i].activated = true;
@@ -212,9 +212,9 @@ window.flexpilot = new function() {
         //After they have been activated, no need to do it again
         if (!objects[i].activated) {
           try {
-            this.log("Trying to activate flex movie: " + this.lookupTarget(objects[i]));
+            this.log("Trying to activate flex movie recording: " + this.lookupTarget(objects[i]));
             this.callMovie(win, objects[i], 'fp_recorderStart');
-            this.log("Succesfully activated flex movie: " + this.lookupTarget(objects[i]));
+            this.log("Succesfully activated flex movie recording: " + this.lookupTarget(objects[i]));
             objects[i].removeEventListener('mouseover', function(e) { editor.flexTarget = e.target.wrappedJSObject;}, false);
             objects[i].addEventListener('mouseover', function(e) { editor.flexTarget = e.target.wrappedJSObject;}, false);
             objects[i].activated = true;
@@ -324,6 +324,7 @@ window.flexpilot = new function() {
         try {
           this.callMovie(win, embeds[i], 'fp_explorerStop');
           this.callMovie(win, embeds[i], 'fp_recorderStop');
+          embeds[i].activated = false;
           embeds[i].removeEventListener('mouseover', function(e) { editor.flexTarget = e.target.wrappedJSObject;}, false);
         } catch(err) {
           this.log(err);
@@ -333,6 +334,7 @@ window.flexpilot = new function() {
         try {
           this.callMovie(win, objects[i], 'fp_explorerStop');
           this.callMovie(win, objects[i], 'fp_recorderStop');
+          embeds[i].activated = false;
           objects[i].removeEventListener('mouseover', function(e) { editor.flexTarget = e.target.wrappedJSObject;}, false);
         } catch(err) {
           this.log(err);
