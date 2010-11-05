@@ -194,34 +194,34 @@ window.flexpilot = new function() {
       //Starting recorders for both embeds and objects
       for (var i=0;i<embeds.length;i++) {
         //After they have been activated, no need to do it again
-        if (!embeds[i].activated) {
           try {
-            this.log("Trying to activate flex movie recording: " + this.lookupTarget(embeds[i]));
-            this.callMovie(win, embeds[i], 'fp_recorderStart');
-            this.log("Succesfully activated flex movie recording: " + this.lookupTarget(embeds[i]));
-            embeds[i].removeEventListener('mouseover', function(e) { editor.flexTarget = e.target.wrappedJSObject;}, false);
-            embeds[i].addEventListener('mouseover', function(e) { editor.flexTarget = e.target.wrappedJSObject;}, false);
-            embeds[i].activated = true;
+            if (!embeds[i].activated) {
+              this.log("Trying to activate flex movie recording: " + this.lookupTarget(embeds[i]));
+              this.callMovie(win, embeds[i], 'fp_recorderStart');
+              this.log("Succesfully activated flex movie recording: " + this.lookupTarget(embeds[i]));
+              embeds[i].removeEventListener('mouseover', function(e) { editor.flexTarget = e.target.wrappedJSObject;}, false);
+              embeds[i].addEventListener('mouseover', function(e) { editor.flexTarget = e.target.wrappedJSObject;}, false);
+              embeds[i].activated = true;
+            }
           } catch(err) {
             this.log("Failure to activate flex movie: " + this.lookupTarget(embeds[i]));
           }
-        }
       }
       
       for (var i=0;i<objects.length;i++) {
         //After they have been activated, no need to do it again
-        if (!objects[i].activated) {
           try {
-            this.log("Trying to activate flex movie recording: " + this.lookupTarget(objects[i]));
-            this.callMovie(win, objects[i], 'fp_recorderStart');
-            this.log("Succesfully activated flex movie recording: " + this.lookupTarget(objects[i]));
-            objects[i].removeEventListener('mouseover', function(e) { editor.flexTarget = e.target.wrappedJSObject;}, false);
-            objects[i].addEventListener('mouseover', function(e) { editor.flexTarget = e.target.wrappedJSObject;}, false);
-            objects[i].activated = true;
+            if (!objects[i].activated) {
+              this.log("Trying to activate flex movie recording: " + this.lookupTarget(objects[i]));
+              this.callMovie(win, objects[i], 'fp_recorderStart');
+              this.log("Succesfully activated flex movie recording: " + this.lookupTarget(objects[i]));
+              objects[i].removeEventListener('mouseover', function(e) { editor.flexTarget = e.target.wrappedJSObject;}, false);
+              objects[i].addEventListener('mouseover', function(e) { editor.flexTarget = e.target.wrappedJSObject;}, false);
+              objects[i].activated = true;
+            }
           } catch(err) {
             this.log("Failure to activate flex movie: " + this.lookupTarget(objects[i]));
           }
-        }
       }
 
       //windows[w].focus();
