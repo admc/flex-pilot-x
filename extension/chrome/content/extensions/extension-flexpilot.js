@@ -126,6 +126,10 @@ Selenium.prototype.doFlexDragDropToCoords = function(locator, options) {
   this.flex("fp_dragDropToCoords", locator, options);
 };
 
+Selenium.prototype.doFlexDate = function(locator, options) {
+  this.flex("fp_date", locator, options);
+};
+
 Selenium.prototype.doFlexAssertDisplayObject = function(locator, options) {
   this.flex("fp_assertDisplayObject", locator, options);
 };
@@ -140,78 +144,6 @@ Selenium.prototype.doFlexAssertText = function(locator, options) {
 
 Selenium.prototype.doFlexAssertProperty = function(locator, options) {
   this.flex("fp_assertProperty", locator, options);
-};
-
-Selenium.prototype.doFlexSliderChange = function(locator, options) {
-  this.flex("fp_sliderChange", locator, options);
-};
-
-Selenium.prototype.doFlexDateChange = function(locator, options) {
-  this.flex("fp_dateChange", locator, options);
-};
-
-Selenium.prototype.doFlexDgItemEdit = function(locator, options) {
-  this.flex("fp_dgItemEdit", locator, options);
-};
-
-Selenium.prototype.doFlexDgColumnStretch = function(locator, options) {
-  this.flex("fp_dgColumnStretch", locator, options);
-};
-
-Selenium.prototype.doFlexDgHeaderRelease = function(locator, options) {
-  this.flex("fp_dgHeaderRelease", locator, options);
-};
-
-Selenium.prototype.doFlexDgSort = function(locator, options) {
-  this.flex("fp_dgSort", locator, options);
-};
-
-Selenium.prototype.doFlexDgSortAscending = function(locator, options) {
-  this.flex("fp_dgSortAscending", locator, options);
-};
-
-Selenium.prototype.doFlexDgSortDescending = function(locator, options) {
-  this.flex("fp_dgSortDescending", locator, options);
-};
-
-Selenium.prototype.doFlexAdgItemOpen = function(locator, options) {
-  this.flex("fp_adgItemOpen", locator, options);
-};
-
-Selenium.prototype.doFlexAdgItemClose = function(locator, options) {
-  this.flex("fp_adgItemClose", locator, options);
-};
-
-Selenium.prototype.doFlexAdgColumnStretch = function(locator, options) {
-  this.flex("fp_adgColumnStretch", locator, options);
-};
-
-Selenium.prototype.doFlexAdgHeaderRelease = function(locator, options) {
-  this.flex("fp_adgHeaderRelease", locator, options);
-};
-
-Selenium.prototype.doFlexAdgSort = function(locator, options) {
-  this.flex("fp_adgSort", locator, options);
-};
-
-Selenium.prototype.doFlexAdgSortAscending = function(locator, options) {
-  this.flex("fp_adgSortAscending", locator, options);
-};
-
-Selenium.prototype.doFlexAdgSortDescending = function(locator, options) {
-  this.flex("fp_adgSortDescending", locator, options);
-};
-
-Selenium.prototype.doFlexAdgHeaderShift = function(locator, options) {
-  this.flex("fp_adgHeaderShift", locator, options);
-};
-
-Selenium.prototype.doFlexAdgItemEdit = function(locator, options) {
-  this.flex("fp_adgItemEdit", locator, options);
-};
-
-Selenium.prototype.doFlexItemDragDrop = function(locator, options) {
-  this.flex("fp_dragDrop", locator, options);
 };
 
 Selenium.prototype.isFlexReady = function(locator) {
@@ -261,69 +193,9 @@ try {
   RemoteSelenium.prototype.doFlexDragDropToCoords = function(locator, options) {
     return this.doCommand("flexDragDropToCoords", [locator, options], this.handleResults);
   };
-
-  RemoteSelenium.prototype.doFlexSliderChange = function(locator, options) {
-    return this.doCommand("flexSliderChange", [locator, options], this.handleResults);
-  };
   
-  RemoteSelenium.prototype.doFlexDateChange = function(locator, options) {
-    return this.doCommand("flexDateChange", [locator, options], this.handleResults);
-  };
-  
-  RemoteSelenium.prototype.doFlexDgItemEdit = function(locator, options) {
-    return this.doCommand("flexDgItemEdit", [locator, options], this.handleResults);
-  };
-  
-  RemoteSelenium.prototype.doFlexDgSort = function(locator, options) {
-    return this.doCommand("flexDgSort", [locator, options], this.handleResults);
-  };
-  
-  RemoteSelenium.prototype.doFlexDgSortAscending = function(locator, options) {
-    return this.doCommand("flexDgSortAscending", [locator, options], this.handleResults);
-  };
-  
-  RemoteSelenium.prototype.doFlexDgSortDescending = function(locator, options) {
-    return this.doCommand("flexDgSortDescending", [locator, options], this.handleResults);
-  };
-  
-  RemoteSelenium.prototype.doFlexDgItemEdit = function(locator, options) {
-    return this.doCommand("flexDgItemEdit", [locator, options], this.handleResults);
-  };
-  
-  RemoteSelenium.prototype.doFlexAdgSort = function(locator, options) {
-    return this.doCommand("flexAdgSort", [locator, options], this.handleResults);
-  }; 
-  
-  RemoteSelenium.prototype.doFlexAdgSortAscending = function(locator, options) {
-    return this.doCommand("flexAdgSortAscending", [locator, options], this.handleResults);
-  };
-  
-  RemoteSelenium.prototype.doFlexAdgSortDescending = function(locator, options) {
-    return this.doCommand("flexAdgSortDescending", [locator, options], this.handleResults);
-  };
-  
-  RemoteSelenium.prototype.doFlexAdgItemOpen = function(locator, options) {
-    return this.doCommand("flexAdgItemOpen", [locator, options], this.handleResults);
-  };
-  
-  RemoteSelenium.prototype.doFlexAdgItemClose = function(locator, options) {
-    return this.doCommand("flexAdgItemClose", [locator, options], this.handleResults);
-  };
-  
-  RemoteSelenium.prototype.doFlexAdgColumnStretch = function(locator, options) {
-    return this.doCommand("flexAdgColumnStretch", [locator, options], this.handleResults);
-  };
-  
-  RemoteSelenium.prototype.doFlexAdgHeaderRelease = function(locator, options) {
-    return this.doCommand("flexAdgHeaderRelease", [locator, options], this.handleResults);
-  };
-  
-  RemoteSelenium.prototype.doFlexAdgHeaderShift = function(locator, options) {
-    return this.doCommand("flexAdgHeaderShift", [locator, options], this.handleResults);
-  };
-  
-  RemoteSelenium.prototype.doFlexAdgItemEdit = function(locator, options) {
-    return this.doCommand("flexAdgItemEdit", [locator, options], this.handleResults);
+  RemoteSelenium.prototype.doFlexDate = function(locator, options) {
+    return this.doCommand("flexDate", [locator, options], this.handleResults);
   };
   
   RemoteSelenium.prototype.doFlexAssertDisplayObject = function(locator, options) {
@@ -343,9 +215,10 @@ try {
   };
 
   RemoteSelenium.prototype.doWaitForFlexReady = function(locator,timeout) {
-      return this.doCommand("waitForFlexReady", [script,timeout], this.handleResults);
+      return this.doCommand("waitForFlexReady", [script, timeout], this.handleResults);
   };
-  RemoteSelenium.prototype.doWaitForFlexNode = function(locator,options) {
-      return this.doCommand("waitForFlexReady", [locator,options], this.handleResults);
+  
+  RemoteSelenium.prototype.doWaitForFlexObject = function(locator,options) {
+      return this.doCommand("waitForFlexObject", [locator, options], this.handleResults);
   };
 } catch (e) { /*must be in selenium RC */ }

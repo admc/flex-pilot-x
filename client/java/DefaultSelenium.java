@@ -215,76 +215,8 @@ public class DefaultSelenium implements Selenium {
         commandProcessor.doCommand("flexAssertProperty", new String[] {locator,options});
     }
 
-    public void flexSliderChange(String locator,String options) {
-        commandProcessor.doCommand("flexSliderChange", new String[] {locator,options});
-    }
-
-    public void flexDateChange(String locator,String options) {
-        commandProcessor.doCommand("flexDateChange", new String[] {locator,options});
-    }
-
-    public void flexDgItemEdit(String locator,String options) {
-        commandProcessor.doCommand("flexDgItemEdit", new String[] {locator,options});
-    }
-
-    public void flexDgColumnStretch(String locator,String options) {
-        commandProcessor.doCommand("flexDgColumnStretch", new String[] {locator,options});
-    }
-
-    public void flexDgHeaderRelease(String locator,String options) {
-        commandProcessor.doCommand("flexDgHeaderRelease", new String[] {locator,options});
-    }
-
-    public void flexDgSort(String locator,String options) {
-        commandProcessor.doCommand("flexDgSort", new String[] {locator,options});
-    }
-
-    public void flexDgSortAscending(String locator,String options) {
-        commandProcessor.doCommand("flexDgSortAscending", new String[] {locator,options});
-    }
-
-    public void flexDgSortDescending(String locator,String options) {
-        commandProcessor.doCommand("flexDgSortDescending", new String[] {locator,options});
-    }
-
-    public void flexAdgItemOpen(String locator,String options) {
-        commandProcessor.doCommand("flexAdgItemOpen", new String[] {locator,options});
-    }
-
-    public void flexAdgItemClose(String locator,String options) {
-        commandProcessor.doCommand("flexAdgItemClose", new String[] {locator,options});
-    }
-
-    public void flexAdgColumnStretch(String locator,String options) {
-        commandProcessor.doCommand("flexAdgColumnStretch", new String[] {locator,options});
-    }
-
-    public void flexAdgHeaderRelease(String locator,String options) {
-        commandProcessor.doCommand("flexAdgHeaderRelease", new String[] {locator,options});
-    }
-
-    public void flexAdgSort(String locator,String options) {
-        commandProcessor.doCommand("flexAdgSort", new String[] {locator,options});
-    }
-
-    public void flexAdgSortAscending(String locator,String options) {
-        commandProcessor.doCommand("flexAdgSortAscending", new String[] {locator,options});
-    }
-
-    public void flexAdgSortDescending(String locator,String options) {
-        commandProcessor.doCommand("flexAdgSortDescending", new String[] {locator,options});
-    }
-
-    public void flexAdgHeaderShift(String locator,String options) {
-        commandProcessor.doCommand("flexAdgHeaderShift", new String[] {locator,options});
-    }
-
-    public void flexAdgItemEdit(String locator,String options) {
-        commandProcessor.doCommand("flexAdgItemEdit", new String[] {locator,options});
-    }
-
-    public void flexItemDragDrop(String locator,String options) {
-        commandProcessor.doCommand("flexItemDragDrop", new String[] {locator,options});
+    public void flexDate(String locator,String options) {
+        commandProcessor.doCommand("flexDate", new String[] {locator,options});
     }
 
     public void doubleClick(String locator) {

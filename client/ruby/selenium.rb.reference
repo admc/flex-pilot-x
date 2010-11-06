@@ -279,7 +279,11 @@ module Selenium
         def flex_drag_drop_to_coords(locator,options):
             remote_control_command("flexDragDropToCoords", [locator,options])
         end
-        
+
+        def flex_date(locator,options):
+            remote_control_command("flexDate", [locator,options])
+        end
+
         def flex_assert_display_object(locator,options):
             remote_control_command("flexAssertDisplayObject", [locator,options])
         end
