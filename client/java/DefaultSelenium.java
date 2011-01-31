@@ -190,6 +190,10 @@ public class DefaultSelenium implements Selenium {
     public void flexType(String locator,String options) {
        commandProcessor.doCommand("flexType", new String[] {locator,options});
     }
+    
+	public void flexFocusOut(String locator,String options) {
+       commandProcessor.doCommand("flexFocusOut", new String[] {locator,options});
+    }
 
     public void flexDragDropElemToElem(String locator,String options) {
        commandProcessor.doCommand("flexDragDropElemToElem", new String[] {locator,options});

@@ -186,6 +186,10 @@ try {
     return this.doCommand("flexSelect", [locator, options], this.handleResults);
   };
 
+  RemoteSelenium.prototype.doFlexFocusOut = function(locator, options) {
+    return this.doCommand("flexFocusOut", [locator, options], this.handleResults);
+  };  
+
   RemoteSelenium.prototype.doFlexDragDropElemToElem = function(locator, options) {
     return this.doCommand("flexDragDropElemToElem", [locator, options], this.handleResults);
   };
