@@ -119,6 +119,10 @@ Selenium.prototype.doFlexSelect = function(locator, options) {
   this.flex("fp_select", locator, options);
 };
 
+Selenium.prototype.doFlexFocusOut = function(locator, options) {
+  this.flex("fp_focusOut", locator, options);
+};
+
 //x.doFlashDragDropElemToElem("id=devMovie", "chain=name:dragSprite", "optchain=id:subPanel")
 //{chain:"name:dragSprite", optchain:"name:testTextArea"}
 Selenium.prototype.doFlexDragDropElemToElem = function(locator, options) {
@@ -189,7 +193,11 @@ try {
   RemoteSelenium.prototype.doFlexSelect = function(locator, options) {
     return this.doCommand("flexSelect", [locator, options], this.handleResults);
   };
-
+  
+  RemoteSelenium.prototype.doFlexFocusOut = function(locator, options) {
+    return this.doCommand("flexFocusOut", [locator, options], this.handleResults);
+  };
+  
   RemoteSelenium.prototype.doFlexDragDropElemToElem = function(locator, options) {
     return this.doCommand("flexDragDropElemToElem", [locator, options], this.handleResults);
   };
