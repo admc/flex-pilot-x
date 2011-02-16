@@ -81,6 +81,9 @@ Selenium.prototype.callMovie = function(movie, func, params) {
     e.initEvent( 'click', false, false);
     bridge.dispatchEvent(e);
 
+    if (bridge.value == "test") {
+      bridge.value = "undefined";
+    }
     if (bridge.value != "undefined") {
       var res = {};
       res.message = bridge.value;
