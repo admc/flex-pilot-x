@@ -20,7 +20,7 @@ Copyright 2009-2010, Sauce Labs
 //give us an object from the string
 Selenium.prototype.strToObj = function(str) {
   var obj = {};
-  try { obj = eval("(" + str + ")") }
+  try { obj = JSON.parse(str); }
   catch(err) {
     try {
       var optArr = str.split(",")

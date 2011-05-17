@@ -4,7 +4,7 @@
   <Description about="urn:mozilla:install-manifest">
     <em:id>flexpilotx@admc.io</em:id>
     <em:name>Flex-Pilot-x</em:name>
-    <em:version>0.8.3</em:version>
+    <em:version>0.8.4</em:version>
     <em:creator>Adam Christian</em:creator>
     <em:description>A Selenium IDE extension for integrating Flex testing using Flex-Pilot.</em:description>
     <em:iconURL>chrome://flexpilotx/content/logo3.png</em:iconURL>
